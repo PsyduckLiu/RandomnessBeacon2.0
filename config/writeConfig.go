@@ -8,7 +8,7 @@ import (
 )
 
 // write new m_k and r_k
-func WriteSetup(m_k *binaryquadraticform.BQuadraticForm, m_kSub *binaryquadraticform.BQuadraticForm, r_k *binaryquadraticform.BQuadraticForm) {
+func WriteSetup(m_k *binaryquadraticform.BQuadraticForm, r_k *binaryquadraticform.BQuadraticForm, proof *binaryquadraticform.BQuadraticForm) {
 	// set config file
 	outputViper := viper.New()
 	outputViper.SetConfigFile("Config.yml")
@@ -21,12 +21,12 @@ func WriteSetup(m_k *binaryquadraticform.BQuadraticForm, m_kSub *binaryquadratic
 	outputViper.Set("m_k_a", m_k.GetA())
 	outputViper.Set("m_k_b", m_k.GetB())
 	outputViper.Set("m_k_c", m_k.GetC())
-	outputViper.Set("m_kSub_a", m_kSub.GetA())
-	outputViper.Set("m_kSub_b", m_kSub.GetB())
-	outputViper.Set("m_kSub_c", m_kSub.GetC())
 	outputViper.Set("r_k_a", r_k.GetA())
 	outputViper.Set("r_k_b", r_k.GetB())
 	outputViper.Set("r_k_c", r_k.GetC())
+	outputViper.Set("p_a", proof.GetA())
+	outputViper.Set("p_b", proof.GetB())
+	outputViper.Set("p_c", proof.GetC())
 
 	// write new settings
 	if err := outputViper.WriteConfig(); err != nil {
@@ -34,5 +34,5 @@ func WriteSetup(m_k *binaryquadraticform.BQuadraticForm, m_kSub *binaryquadratic
 	}
 	// outputViper.Debug()
 
-	fmt.Println("\n===>[WriteSetup]Write output success")
+	fmt.Println("===>[WriteSetup]Write output success")
 }

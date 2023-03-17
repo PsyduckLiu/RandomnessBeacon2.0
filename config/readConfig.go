@@ -33,7 +33,7 @@ func GetTimeParameter() int {
 }
 
 // get public group parameter from config file
-func GetPublicGroupParameter() (int, int, int, int, int, int, int, int, int) {
+func GetPublicGroupParameter() (int, int, int, int, int, int) {
 	// set config file
 	configViper := viper.New()
 	configViper.SetConfigFile("Config.yml")
@@ -42,5 +42,18 @@ func GetPublicGroupParameter() (int, int, int, int, int, int, int, int, int) {
 		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
 	}
 
-	return configViper.GetInt("m_k_a"), configViper.GetInt("m_k_b"), configViper.GetInt("m_k_c"), configViper.GetInt("r_k_a"), configViper.GetInt("r_k_b"), configViper.GetInt("r_k_c"), configViper.GetInt("m_kSub_a"), configViper.GetInt("m_kSub_b"), configViper.GetInt("m_kSub_c")
+	return configViper.GetInt("m_k_a"), configViper.GetInt("m_k_b"), configViper.GetInt("m_k_c"), configViper.GetInt("r_k_a"), configViper.GetInt("r_k_b"), configViper.GetInt("r_k_c")
+}
+
+// get public parameter proof from config file
+func GetPublicParameterProof() (int, int, int) {
+	// set config file
+	configViper := viper.New()
+	configViper.SetConfigFile("Config.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
+	}
+
+	return configViper.GetInt("p_a"), configViper.GetInt("p_b"), configViper.GetInt("p_c")
 }
