@@ -80,7 +80,7 @@ func GenerateTC() (*big.Int, *binaryquadraticform.BQuadraticForm, *binaryquadrat
 
 	// TODO
 	// F function to de modeified
-	hashedRk := new(big.Int).SetBytes(util.Digest((R_k)))
+	hashedRk := new(big.Int).SetBytes(util.Digest((R_k.GetA())))
 	maskedMsg := new(big.Int)
 	maskedMsg.Xor(msg, hashedRk)
 
