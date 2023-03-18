@@ -26,7 +26,7 @@ func main() {
 		rand.Read(b)
 		rand_str := hex.EncodeToString(b)
 
-		watch.WriteFile("output", rand_str)
+		watch.WriteFile("../output", rand_str)
 
 		time.Sleep(5 * time.Second)
 	}
