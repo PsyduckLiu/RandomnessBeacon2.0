@@ -16,7 +16,7 @@ syntax = "proto3";
 
 package proposalpb;
 
-option go_package = "github.com/relab/hotstuff/internal/proto/clientpb";
+option go_package = "github.com/PsyduckLiu/RandomnessBeacon2.0/tree/main/collector/RBC/proposalpb";
 
 // The ProposalHandle service definition.
 service ProposalHandle {
