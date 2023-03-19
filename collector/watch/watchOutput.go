@@ -18,7 +18,6 @@ func WatchOutput(outputCh chan string, filename string) {
 		panic(fmt.Errorf("===>[ERROR from WatchOutput]Watch OUTPUT failed:%s", err))
 	}
 
-	fmt.Println("collector allala")
 	go func() {
 		lastOutput := ""
 		for {

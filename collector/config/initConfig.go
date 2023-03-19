@@ -1,13 +1,13 @@
 package config
 
 import (
-	"RB/crypto/binaryquadraticform"
-	"RB/util"
+	"collector/crypto/binaryquadraticform"
+	"collector/util"
 	"fmt"
 	"math/big"
 )
 
-func Init() {
+func InitGroup() {
 	a, b, c := GetGroupParameter()
 	t := GetTimeParameter()
 

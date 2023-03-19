@@ -12,10 +12,11 @@ service ProposalHandle {
 
 // The request message containing the user's name.
 message Proposal {
-  string round = 1;
-  string sender = 2;
-  string sig = 3;
-  // timedCommitment
+  int64 type = 1;
+  string round = 2;
+  string sender = 3;
+  repeated string tc = 4;
+  string sig = 5;
 }
 
 message ProposalResponse {}

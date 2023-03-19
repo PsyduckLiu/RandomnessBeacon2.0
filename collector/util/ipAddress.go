@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func GetIPAdress(filename string) []string {
+func GetIPAddress(filename string) []string {
 	file, err := os.Open(filename)
 	if err != nil {
 		panic(fmt.Errorf("===>[ERROR from ReadFile]Read file failed:%s", err))

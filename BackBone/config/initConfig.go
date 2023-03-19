@@ -7,7 +7,7 @@ import (
 	"math/big"
 )
 
-func Init() {
+func InitGroup() {
 	a, b, c := GetGroupParameter()
 	t := GetTimeParameter()
 

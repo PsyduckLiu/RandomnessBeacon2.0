@@ -2,14 +2,18 @@ package main
 
 import (
 	"collector/RBC/proposalpb"
+	"collector/config"
+	"collector/signature"
 	"collector/util"
 	"collector/watch"
 	"context"
 	"fmt"
-	"log"
 	"net"
 	"os"
+	"strconv"
 	"time"
+
+	blsSig "go.dedis.ch/dela/crypto/bls"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -22,57 +26,89 @@ type proposalServer struct {
 
 // ProposalReceive implements proposalpb.ProposalReceive
 func (ps *proposalServer) ProposalReceive(ctx context.Context, in *proposalpb.Proposal) (*proposalpb.ProposalResponse, error) {
-	log.Printf("Received: %v", in.GetRound())
+	fmt.Printf("===>[ProposalReceive]Received: Round: %v Sender: %v TC: %v\n", in.GetRound(), in.GetSender(), in.GetTc())
+
+	result := signature.VerifySig(1, in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig())
+	fmt.Println("===>[ProposalReceive]Verify ", result)
+
 	return &proposalpb.ProposalResponse{}, nil
 }
 
-func main() {
-	ip := os.Args[1]
-	fmt.Println(ip)
-	adress := "127.0.0.1:" + ip
-	outputCh := make(chan string)
+type Collector struct {
+	ID       int
+	Address  string
+	OutputCh chan string
+	Signer   blsSig.Signer
+	// pk,sk
+}
 
-	lis, err := net.Listen("tcp", adress)
+// initialize a new Collector
+func NewCollector(id int) *Collector {
+	c := &Collector{
+		ID:       id,
+		Address:  "127.0.0.1:" + strconv.Itoa(2333+id),
+		OutputCh: make(chan string),
+		Signer:   blsSig.NewSigner(),
+	}
+
+	config.WriteKey(id, c.Signer.GetPublicKey())
+
+	return c
+}
+
+func main() {
+	id := os.Args[1]
+	idInt, _ := strconv.Atoi(id)
+	collecor := NewCollector(idInt)
+
+	lis, err := net.Listen("tcp", collecor.Address)
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		panic(fmt.Errorf("===>[ERROR from Collector]Failed to listen: %s", err))
 	}
 
 	ps := grpc.NewServer()
 	proposalpb.RegisterProposalHandleServer(ps, &proposalServer{})
-	log.Printf("server listening at %v", lis.Addr())
 	go ps.Serve(lis)
-	// if err := ps.Serve(lis); err != nil {
-	// 	log.Fatalf("failed to serve: %v", err)
-	// }
+	fmt.Printf("===>[Collector]Collector is listening at %v", lis.Addr())
 
-	go watch.WatchOutput(outputCh, "../output")
+	go watch.WatchOutput(collecor.OutputCh, "../output")
 
 	for {
 		select {
-		case newOutput := <-outputCh:
+		case newOutput := <-collecor.OutputCh:
 			{
 				fmt.Println("===>[Collector]New output is:", newOutput)
-				ipList := util.GetIPAdress("../ipAdress")
-				fmt.Println(ipList)
+				ipList := util.GetIPAddress("../ipAddress")
+				fmt.Println("===>[Collector]IP list is:", ipList)
 
-				for _, ipAdress := range ipList {
-					if ipAdress != adress {
-						fmt.Println(ipAdress)
-						conn, err := grpc.Dial(ipAdress, grpc.WithTransportCredentials(insecure.NewCredentials()))
+				for _, ipAddress := range ipList {
+					if ipAddress != collecor.Address {
+						conn, err := grpc.Dial(ipAddress, grpc.WithTransportCredentials(insecure.NewCredentials()))
 						if err != nil {
-							log.Fatalf("did not connect: %v", err)
+							fmt.Println("===>[!!!Collector]did not connect:", err)
+							continue
 						}
+
 						pc := proposalpb.NewProposalHandleClient(conn)
-
 						ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-						defer cancel()
-						_, err = pc.ProposalReceive(ctx, &proposalpb.Proposal{Round: "1", Sender: "1", Sig: "1"})
+
+						// tcList := [3]string{"1", "2", "3"}
+						var tcList []string
+						tcList = append(tcList, "1")
+						tcList = append(tcList, "2")
+						tcList = append(tcList, "3")
+
+						sig := signature.GenerateSig(1, "1", tcList, collecor.Signer)
+						fmt.Println("Signature:", sig)
+						_, err = pc.ProposalReceive(ctx, &proposalpb.Proposal{Type: 1, Round: "1", Sender: id, Tc: tcList, Sig: sig})
 						if err != nil {
-							log.Fatalf("could not greet: %v", err)
+							fmt.Println("===>[!!!Collector]Failed to response:", err)
+							continue
 						}
+
+						cancel()
 					}
 				}
-
 			}
 		}
 	}
