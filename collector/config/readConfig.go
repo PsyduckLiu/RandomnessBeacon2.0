@@ -87,3 +87,16 @@ func GetKey(id int) blsCrypto.PublicKey {
 	fmt.Println("===>[GetKey]Get public key success", pk)
 	return pk
 }
+
+// get fault node number
+func GetF() int {
+	// set config file
+	configViper := viper.New()
+	configViper.SetConfigFile("../Config.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetF]Read config file failed:%s", err))
+	}
+
+	return configViper.GetInt("f")
+}

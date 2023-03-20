@@ -32,7 +32,7 @@ func main() {
 
 		watch.WriteFile("../output", rand_str)
 
-		time.Sleep(5 * time.Second)
+		time.Sleep(50000 * time.Second)
 	}
 }
 
