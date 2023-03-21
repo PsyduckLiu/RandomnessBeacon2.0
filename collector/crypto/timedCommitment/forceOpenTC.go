@@ -1,14 +1,14 @@
 package timedCommitment
 
 import (
-	"RB/config"
-	"RB/crypto/binaryquadraticform"
-	"RB/util"
+	"collector/config"
+	"collector/crypto/binaryquadraticform"
+	"collector/util"
 	"fmt"
 	"math/big"
 )
 
-func ForcedOpen(maskedMsg *big.Int, h *binaryquadraticform.BQuadraticForm) {
+func ForcedOpen(maskedMsg *big.Int, h *binaryquadraticform.BQuadraticForm) string {
 	t := config.GetTimeParameter()
 
 	bigOne := big.NewInt(1)
@@ -30,4 +30,6 @@ func ForcedOpen(maskedMsg *big.Int, h *binaryquadraticform.BQuadraticForm) {
 	msgComputed.Xor(maskedMsg, hashedRk)
 
 	fmt.Println("===>[ForcedOpen]opened msg is", msgComputed)
+
+	return msgComputed.String()
 }

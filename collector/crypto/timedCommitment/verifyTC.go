@@ -1,9 +1,9 @@
 package timedCommitment
 
 import (
-	"RB/config"
-	"RB/crypto/binaryquadraticform"
-	"RB/util"
+	"collector/config"
+	"collector/crypto/binaryquadraticform"
+	"collector/util"
 	"fmt"
 	"math/big"
 )

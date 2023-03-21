@@ -84,7 +84,7 @@ func GetKey(id int) blsCrypto.PublicKey {
 		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
 	}
 
-	fmt.Println("===>[GetKey]Get public key success", pk)
+	// fmt.Println("===>[GetKey]Get public key success", pk)
 	return pk
 }
 

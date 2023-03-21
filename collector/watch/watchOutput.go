@@ -26,9 +26,9 @@ func WatchOutput(outputCh chan string, filename string) {
 				{
 					if ev.Op&fsnotify.Write == fsnotify.Write {
 						output := ReadFile(filename)
-						if lastOutput != output {
+						if lastOutput != output && output != "" {
 							lastOutput = output
-							outputCh <- lastOutput
+							outputCh <- output
 							fmt.Println("===>[WatchOutput]New output is:", output)
 						}
 					}

@@ -39,7 +39,7 @@ func AggSig(sig []string) string {
 	return hex.EncodeToString(result)
 }
 
-func VerifyAggSig(msgtype int64, round string, sender string, tc []string, aggsig string, from []string) bool {
+func VerifyAggMsgSig(round string, sender string, tc []string, aggsig string, from []string) bool {
 	aggSigner := blsSig.NewSigner()
 	var publicKeys []blsCrypto.PublicKey
 
@@ -57,6 +57,7 @@ func VerifyAggSig(msgtype int64, round string, sender string, tc []string, aggsi
 		panic("verifier failed: " + err.Error())
 	}
 
+	msgtype := 2
 	tHash := new(big.Int).SetBytes(util.Digest((msgtype)))
 	rHash := new(big.Int).SetBytes(util.Digest((round)))
 	sHash := new(big.Int).SetBytes(util.Digest((sender)))
@@ -69,7 +70,39 @@ func VerifyAggSig(msgtype int64, round string, sender string, tc []string, aggsi
 	e.Xor(e, tcHash)
 
 	err = verifier.Verify(e.Bytes(), signatureRecover)
-	fmt.Println(err == nil)
+
+	return err == nil
+}
+
+func VerifyAggOutputSig(round string, randomNumber string, aggsig string, from []string) bool {
+	aggSigner := blsSig.NewSigner()
+	var publicKeys []blsCrypto.PublicKey
+
+	for _, f := range from {
+		id, _ := strconv.Atoi(f)
+		pk := config.GetKey(id)
+		publicKeys = append(publicKeys, pk)
+	}
+
+	sigByte, _ := hex.DecodeString(aggsig)
+	signatureRecover := blsSig.NewSignature(sigByte)
+
+	verifier, err := aggSigner.GetVerifierFactory().FromArray(publicKeys)
+	if err != nil {
+		panic("verifier failed: " + err.Error())
+	}
+
+	msgtype := 4
+	tHash := new(big.Int).SetBytes(util.Digest((msgtype)))
+	rHash := new(big.Int).SetBytes(util.Digest((round)))
+	rnHash := new(big.Int).SetBytes(util.Digest((randomNumber)))
+
+	e := big.NewInt(0)
+	e.Xor(e, tHash)
+	e.Xor(e, rHash)
+	e.Xor(e, rnHash)
+
+	err = verifier.Verify(e.Bytes(), signatureRecover)
 
 	return err == nil
 }

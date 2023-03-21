@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"time"
 )
 
 func ReadFile(filename string) string {
@@ -20,6 +21,8 @@ func ReadFile(filename string) string {
 }
 
 func WriteFile(filename string, data string) {
+	time.Sleep(5 * time.Second)
+
 	f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
 	if err != nil {
 		panic(fmt.Errorf("===>[ERROR from WriteFile]Write file failed:%s", err))

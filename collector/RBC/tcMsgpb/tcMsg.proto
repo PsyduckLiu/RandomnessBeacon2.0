@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package tcMsgpb;
+
+option go_package = "../tcMsgpb";
+
+// The TcMsgHandle service definition.
+service TcMsgHandle {
+  // Handles a received tcMsg message
+  rpc TcMsgReceive (TcMsg) returns (TcMsgResponse) {}
+}
+
+// The request message containing the user's name.
+message TcMsg {
+  string maskedMsg = 1;
+  int64 h_a = 2;
+  int64 h_b = 3;
+  int64 h_c = 4;
+  int64 Mk_a = 5;
+  int64 Mk_b = 6;
+  int64 Mk_c = 7;
+  int64 a1_a = 8;
+  int64 a1_b = 9;
+  int64 a1_c = 10;
+  int64 a2_a = 11;
+  int64 a2_b = 12;
+  int64 a2_c = 13;
+  string z = 14;
+}
+
+message TcMsgResponse {}
