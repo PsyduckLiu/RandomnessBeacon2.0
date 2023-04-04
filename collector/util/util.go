@@ -1,6 +1,7 @@
 package util
 
 import (
+	"collector/config"
 	"crypto/sha256"
 	"fmt"
 	"sort"
@@ -29,4 +30,32 @@ func RemoveRepeatElement(list []string) []string {
 		}
 	}
 	return uniq
+}
+
+func GetLeader(round int, view int) int {
+	f := config.GetF()
+	n := 3*f + 1
+
+	return (round + view) % n
+}
+
+func IsSubSet(x []string, y []string) bool {
+	var result bool
+
+	for _, valuex := range x {
+		result = false
+
+		for _, valuey := range y {
+			if valuex == valuey {
+				result = true
+				break
+			}
+		}
+
+		if !result {
+			return result
+		}
+	}
+
+	return true
 }

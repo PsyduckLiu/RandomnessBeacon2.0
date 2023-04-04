@@ -1,4 +1,8 @@
 #!/bin/bash
+cd ../BulletinBoard
+cat result/running.pid | xargs -IX kill -9 X
+:> result/running.pid
+
 cd ../collector
 cat result/running.pid | xargs -IX kill -9 X
 :> result/running.pid

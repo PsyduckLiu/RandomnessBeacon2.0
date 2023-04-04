@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package submitpb;
+
+option go_package = "../submitpb";
+
+// The SubmitHandle service definition.
+service SubmitHandle {
+  // Handles a received submit message
+  rpc SubmitReceive (Submit) returns (SubmitResponse) {}
+}
+
+// The request message containing the user's name.
+message Submit {
+  int64 type = 1;
+  string round = 2;
+  string view = 3;
+  string sender = 4;
+  repeated string tc = 5;
+  string sig = 6;
+}
+
+message SubmitResponse {}

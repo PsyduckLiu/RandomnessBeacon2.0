@@ -1,0 +1,17 @@
+===>[Board]board is listening at 127.0.0.1:40000===>[InitConfig]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[InitConfig] 2^t is:1024
+===>[InitConfig] Mk is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[InitConfig] Rk is (a=946,b=332,c=537923,d=-2035390408)
+proof right 7106 6404
+===>[WriteSetup]Write output success
+==>[WriteFile] Write  62f3c2e99c4d
+===>[NewLeaderReceive]Received: Round: 1 Sender: 1
+===>[NewLeaderReceive]Verify  true
+===>[NewLeaderReceive]Received: Round: 1 Sender: 3
+===>[NewLeaderReceive]Received: Round: 1 Sender: 0
+===>[NewLeaderReceive]Verify  true
+===>[NewLeaderReceive]Received: Round: 1 Sender: 2
+===>[NewLeaderReceive]Verify  true
+===>[NewLeaderReceive]Verify  true
+===>[Board]publish newLeader messages
+==>[WriteFile] Write  [{"Round":"1","View":"0","Sender":"1","Sig":"119bccb449f3ed29c211ddff3eca19d0713d2f3fa986071b22fd0b6d13ce66e28ef5e82e9bea7ec4e5070bd0afd1a005854ac22560192602e22e0a206391ef6a"} {"Round":"1","View":"0","Sender":"3","Sig":"496ecb601f9ce3aa72e8e44b3ae0bee684e87a3e12895254da3cb431aed7e3f24a39035b7cd2d35c132939ff4f090afe165f45b050a024e2ca421232bb9f2750"} {"Round":"1","View":"0","Sender":"0","Sig":"03020f479e34e5ee0c52c61d271b6cac614ad8ffbcd543bbf314895176f6968711d41c58565079e39ab11ac7da4ea4620007ff2740aee6b5dc5d09860d54f456"} {"Round":"1","View":"0","Sender":"2","Sig":"06829e17e308cc071b2cb47cc48480abfe8a471cabfe100585e50a4824c666e28589bd415b326b3bd03a70e1bd10269925970eaf8f34012b1f837e3bbd1727e4"}]

@@ -11,7 +11,8 @@ import (
 func WriteSetup(m_k *binaryquadraticform.BQuadraticForm, r_k *binaryquadraticform.BQuadraticForm, proof *binaryquadraticform.BQuadraticForm) {
 	// set config file
 	outputViper := viper.New()
-	outputViper.SetConfigFile("../Config.yml")
+	// configViper.SetConfigFile("../Config.yml")
+	outputViper.SetConfigFile("download/Config.yml")
 
 	// read config and keep origin settings
 	if err := outputViper.ReadInConfig(); err != nil {
@@ -32,7 +33,8 @@ func WriteSetup(m_k *binaryquadraticform.BQuadraticForm, r_k *binaryquadraticfor
 	if err := outputViper.WriteConfig(); err != nil {
 		panic(fmt.Errorf("===>[ERROR from WriteSetup]Write config file failed:%s", err))
 	}
-	// outputViper.Debug()
+
+	CopyFile("download/Config.yml", "/var/www/html/Config.yml")
 
 	fmt.Println("===>[WriteSetup]Write output success")
 }

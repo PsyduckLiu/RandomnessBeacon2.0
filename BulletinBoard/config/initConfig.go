@@ -1,13 +1,24 @@
 package config
 
 import (
-	"collector/crypto/binaryquadraticform"
-	"collector/util"
+	"board/crypto/binaryquadraticform"
+	"crypto/sha256"
 	"fmt"
 	"math/big"
 )
 
+// Hash any type message v, using SHA256
+func Digest(v interface{}) []byte {
+	h := sha256.New()
+	h.Write([]byte(fmt.Sprintf("%v", v)))
+	digest := h.Sum(nil)
+
+	return digest
+}
+
 func InitGroup() {
+	DownloadFile("http://172.18.208.214/Config.yml", "download/Config.yml")
+
 	a, b, c := GetGroupParameter()
 	t := GetTimeParameter()
 
@@ -42,9 +53,9 @@ func InitGroup() {
 	fmt.Printf("===>[InitConfig] Rk is (a=%v,b=%v,c=%v,d=%v)\n", r_k.GetA(), r_k.GetB(), r_k.GetC(), r_k.GetDiscriminant())
 
 	// generate proof
-	gHash := new(big.Int).SetBytes(util.Digest((g.GetA())))
-	mkHash := new(big.Int).SetBytes(util.Digest(m_k.GetA()))
-	expHash := new(big.Int).SetBytes(util.Digest(mkexp))
+	gHash := new(big.Int).SetBytes(Digest((g.GetA())))
+	mkHash := new(big.Int).SetBytes(Digest(m_k.GetA()))
+	expHash := new(big.Int).SetBytes(Digest(mkexp))
 
 	l := big.NewInt(0)
 	l.Xor(l, gHash)
@@ -59,6 +70,7 @@ func InitGroup() {
 	if err != nil {
 		panic(fmt.Errorf("===>[ERROR from InitConfig]Generate new BQuadratic Form failed: %s", err))
 	}
+	fmt.Println("proof right", proof.GetA(), proof.GetB())
 
 	WriteSetup(m_k, r_k, proof)
 }

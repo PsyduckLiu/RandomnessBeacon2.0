@@ -2,9 +2,11 @@ package main
 
 import (
 	"collector/RBC/ackpb"
+	"collector/RBC/newLeaderpb"
 	"collector/RBC/notifypb"
 	"collector/RBC/outputpb"
 	"collector/RBC/proposalpb"
+	"collector/RBC/submitpb"
 	"collector/RBC/tcMsgpb"
 	"collector/config"
 	"collector/crypto/binaryquadraticform"
@@ -16,6 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/big"
+	"math/rand"
 	"net"
 	"os"
 	"reflect"
@@ -27,17 +30,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
-
-// var totalReceiveTC = make([]string, 0)
-// var totalLocalTC = make(map[int][]string)
-// var totalLocalSig = make(map[int][]string)
-// var totalLocalFrom = make(map[int][]string)
-// var totalGlobalTC = make([]string, 0)
-// var totalOutputCount = make(map[string]int)
-// var totalOutputSig = make(map[string][]string)
-// var totalOutputFrom = make(map[string][]string)
-// var ackChan = make(chan int, 5)
-// var notifyChan = make(chan int, 5)
 
 var totalReceiveTC []string
 var totalLocalTC map[int][]string
@@ -130,28 +122,26 @@ func (ts *tcMsgServer) TcMsgReceive(ctx context.Context, in *tcMsgpb.TcMsg) (*tc
 	return &tcMsgpb.TcMsgResponse{}, nil
 }
 
-// proposalServer is used to implement proposalpb.ProposalReceive
-type proposalServer struct {
-	proposalpb.UnimplementedProposalHandleServer
+// submitServer is used to implement submitpb.SubmitReceive
+type submitServer struct {
+	submitpb.UnimplementedSubmitHandleServer
 }
 
-// ProposalReceive implements proposalpb.ProposalReceive
-func (ps *proposalServer) ProposalReceive(ctx context.Context, in *proposalpb.Proposal) (*proposalpb.ProposalResponse, error) {
-	fmt.Printf("===>[ProposalReceive]Received: Round: %v Sender: %v TC: %v\n", in.GetRound(), in.GetSender(), in.GetTc())
+// SubmitReceive implements submitpb.SubmitReceive
+func (ps *submitServer) SubmitReceive(ctx context.Context, in *submitpb.Submit) (*submitpb.SubmitResponse, error) {
+	fmt.Printf("===>[SubmitReceive]Received: Round: %v Sender: %v TC: %v\n", in.GetRound(), in.GetSender(), in.GetTc())
 
-	result := signature.VerifyMsgSig(1, in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetSender())
-	fmt.Println("===>[ProposalReceive]Verify ", result)
+	result := signature.VerifySig(1, in.GetRound(), in.GetView(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetSender())
+	fmt.Println("===>[SubmitReceive]Verify ", result)
 
 	sender, _ := strconv.Atoi(in.GetSender())
 	if result && totalLocalTC[sender] == nil {
 		totalLocalTC[sender] = in.GetTc()
+		totalGlobalTC = append(totalGlobalTC, in.GetTc()...)
 		fmt.Println(totalLocalTC[sender])
-		go func() {
-			ackChan <- sender
-		}()
 	}
 
-	return &proposalpb.ProposalResponse{}, nil
+	return &submitpb.SubmitResponse{}, nil
 }
 
 // ackServer is used to implement ackpb.ackReceive
@@ -164,7 +154,8 @@ func (as *ackServer) AckReceive(ctx context.Context, in *ackpb.Ack) (*ackpb.AckR
 	f := config.GetF()
 
 	fmt.Printf("\n===>[AckReceive]Received: Round: %v Sender: %v From :%v TC: %v\n", in.GetRound(), in.GetSender(), in.GetFrom(), in.GetTc())
-	result := signature.VerifyMsgSig(2, in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetFrom())
+	// result := signature.VerifyMsgSig(2, in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetFrom())
+	result := signature.VerifySig(1, in.GetRound(), in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetSender())
 	fmt.Println("===>[AckReceive]Verify ", result)
 
 	ackTC := in.GetTc()
@@ -193,7 +184,8 @@ type notifyServer struct {
 func (ns *notifyServer) NotifyReceive(ctx context.Context, in *notifypb.Notify) (*notifypb.NotifyResponse, error) {
 	fmt.Printf("===>[notifyReceive]Received: Round: %v Sender: %v From :%v TC: %v\n", in.GetRound(), in.GetSender(), in.GetFrom(), in.GetTc())
 
-	result := signature.VerifyMsgSig(3, in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetFrom())
+	// result := signature.VerifyMsgSig(3, in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetFrom())
+	result := signature.VerifySig(1, in.GetRound(), in.GetRound(), in.GetSender(), in.GetTc(), in.GetSig(), in.GetSender())
 	fmt.Println("===>[notifyReceive]Verify ", result)
 
 	if signature.VerifyAggMsgSig(in.GetRound(), in.GetSender(), in.GetTc(), in.GetAggsig(), in.GetAggfrom()) {
@@ -234,7 +226,7 @@ func (os *outputServer) OutputReceive(ctx context.Context, in *outputpb.Output) 
 			check := signature.VerifyAggOutputSig(in.GetRound(), in.GetRandomNumber(), aggSig, totalOutputFrom[in.GetRandomNumber()])
 			fmt.Println("===>[outputReceive]Agg Verify", check)
 
-			go watch.WriteFile("../output", in.GetRandomNumber())
+			go config.WriteFile("../output", in.GetRandomNumber())
 		}
 	}
 
@@ -242,34 +234,48 @@ func (os *outputServer) OutputReceive(ctx context.Context, in *outputpb.Output) 
 }
 
 type Collector struct {
-	Round        int
-	ID           int
-	Address      string
-	LocalTC      []string
-	GlobalTC     []string
-	OutputCh     chan string
-	Signer       blsSig.Signer
-	ReceiveTimer *time.Ticker
-	RBCTimer     *time.Ticker
+	Round          int
+	View           int
+	ID             int
+	Address        string
+	LocalTC        []string
+	GlobalTC       []string
+	OutputCh       chan string
+	Signer         blsSig.Signer
+	ReceiveTimer   *time.Ticker
+	SubmitTimer    *time.Ticker
+	ProposalTimer  *time.Ticker
+	NewLeaderTimer *time.Ticker
+	RBCTimer       *time.Ticker
 }
 
 // initialize a new Collector
 func NewCollector(id int) *Collector {
 	c := &Collector{
-		Round:        0,
-		ID:           id,
-		Address:      "127.0.0.1:" + strconv.Itoa(30000+id),
-		LocalTC:      make([]string, 0),
-		GlobalTC:     make([]string, 0),
-		OutputCh:     make(chan string),
-		Signer:       blsSig.NewSigner(),
-		ReceiveTimer: time.NewTicker(5 * time.Second),
-		RBCTimer:     time.NewTicker(5 * time.Second),
+		Round:          0,
+		View:           0,
+		ID:             id,
+		Address:        "127.0.0.1:" + strconv.Itoa(30000+id),
+		LocalTC:        make([]string, 0),
+		GlobalTC:       make([]string, 0),
+		OutputCh:       make(chan string),
+		Signer:         blsSig.NewSigner(),
+		ReceiveTimer:   time.NewTicker(5 * time.Second),
+		SubmitTimer:    time.NewTicker(5 * time.Second),
+		ProposalTimer:  time.NewTicker(10 * time.Second),
+		NewLeaderTimer: time.NewTicker(5 * time.Second),
+		RBCTimer:       time.NewTicker(5 * time.Second),
 	}
 
 	c.ReceiveTimer.Stop()
+	c.SubmitTimer.Stop()
+	c.ProposalTimer.Stop()
+	c.NewLeaderTimer.Stop()
 	c.RBCTimer.Stop()
 
+	config.DownloadFile("http://172.18.208.214/Key.yml", "download/Key.yml")
+	config.DownloadFile("http://172.18.208.214/IP.yml", "download/IP.yml")
+	config.DownloadFile("http://172.18.208.214/Config.yml", "download/Config.yml")
 	config.WriteKey(id, c.Signer.GetPublicKey())
 
 	return c
@@ -287,22 +293,23 @@ func main() {
 
 	ps := grpc.NewServer()
 	tcMsgpb.RegisterTcMsgHandleServer(ps, &tcMsgServer{})
-	proposalpb.RegisterProposalHandleServer(ps, &proposalServer{})
-	ackpb.RegisterAckHandleServer(ps, &ackServer{})
-	notifypb.RegisterNotifyHandleServer(ps, &notifyServer{})
-	outputpb.RegisterOutputHandleServer(ps, &outputServer{})
+	submitpb.RegisterSubmitHandleServer(ps, &submitServer{})
+	// ackpb.RegisterAckHandleServer(ps, &ackServer{})
+	// notifypb.RegisterNotifyHandleServer(ps, &notifyServer{})
+	// outputpb.RegisterOutputHandleServer(ps, &outputServer{})
 	go ps.Serve(lis)
 	fmt.Printf("===>[Collector]Collector is listening at %v", lis.Addr())
 
-	go watch.WatchOutput(collector.OutputCh, "../output")
+	go watch.WatchOutput(collector.OutputCh, "output")
 
 	for {
 		select {
 		case <-collector.OutputCh:
 			{
-				collector.ReceiveTimer.Reset(10 * time.Second)
+				collector.ReceiveTimer.Reset(5 * time.Second)
 				reset()
 				collector.Round++
+				collector.View = 0
 				collector.LocalTC = collector.LocalTC[0:0]
 				collector.GlobalTC = collector.GlobalTC[0:0]
 				fmt.Println("\n===>[Collector]Round:", collector.Round)
@@ -311,7 +318,6 @@ func main() {
 		case <-collector.ReceiveTimer.C:
 			{
 				collector.ReceiveTimer.Stop()
-				collector.RBCTimer.Reset(10 * time.Second)
 
 				collector.LocalTC = totalReceiveTC
 				fmt.Println("===>[Collector]New TC is:", collector.LocalTC)
@@ -319,40 +325,119 @@ func main() {
 					continue
 				}
 
-				// proposal phase
-				ipList := util.GetIPAddress("../ipAddress")
+				// submit phase
+				ipList := config.GetPeerIP()
+				leaderId := util.GetLeader(collector.Round, collector.View)
+				leaderIp := ipList[leaderId]
 				fmt.Println("===>[Collector]IP list is:", ipList)
+				fmt.Println("===>[Collector]Leader IP is:", ipList[leaderId])
 
-				for _, ipAddress := range ipList {
-					// if ipAddress != collector.Address {
-					conn, err := grpc.Dial(ipAddress, grpc.WithTransportCredentials(insecure.NewCredentials()))
+				conn, err := grpc.Dial(leaderIp, grpc.WithTransportCredentials(insecure.NewCredentials()))
+				if err != nil {
+					fmt.Println("===>[!!!Collector]did not connect:", err)
+					continue
+				}
+
+				sc := submitpb.NewSubmitHandleClient(conn)
+				ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+				defer cancel()
+
+				sig := signature.GenerateSig(1, strconv.Itoa(collector.Round), strconv.Itoa(collector.View), strconv.Itoa(collector.ID), collector.LocalTC, collector.Signer)
+				_, err = sc.SubmitReceive(ctx, &submitpb.Submit{Type: 1, Round: strconv.Itoa(collector.Round), View: strconv.Itoa(collector.View), Sender: id, Tc: collector.LocalTC, Sig: sig})
+				if err != nil {
+					fmt.Println("Send to", leaderIp)
+					fmt.Println("===>[!!!Collector]Failed to response:", err)
+					continue
+				}
+
+				if collector.ID == leaderId {
+					collector.SubmitTimer.Reset(5 * time.Second)
+				}
+				collector.ProposalTimer.Reset(10 * time.Second)
+			}
+
+		case <-collector.SubmitTimer.C:
+			{
+				collector.SubmitTimer.Stop()
+
+				collector.GlobalTC = totalGlobalTC
+				fmt.Println("===>[Leader][Collector]New total TC is:", collector.GlobalTC)
+				if len(collector.GlobalTC) == 0 {
+					continue
+				}
+
+				// proposal phase
+				boardIp := config.GetBoardIP()
+				fmt.Println("===>[Collector]Board IP is:", boardIp)
+
+				conn, err := grpc.Dial(boardIp, grpc.WithTransportCredentials(insecure.NewCredentials()))
+				if err != nil {
+					fmt.Println("===>[!!!Collector]did not connect:", err)
+					continue
+				}
+
+				pc := proposalpb.NewProposalHandleClient(conn)
+				ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+				defer cancel()
+
+				// simulate evil leader
+				behaviour := rand.Intn(100)
+				if behaviour > 99 {
+					sig := signature.GenerateSig(2, strconv.Itoa(collector.Round), strconv.Itoa(collector.View), strconv.Itoa(collector.ID), collector.GlobalTC, collector.Signer)
+					_, err = pc.ProposalReceive(ctx, &proposalpb.Proposal{Type: 2, Round: strconv.Itoa(collector.Round), View: strconv.Itoa(collector.View), Sender: id, Tc: collector.GlobalTC, Sig: sig})
+					if err != nil {
+						fmt.Println("Send to", boardIp)
+						fmt.Println("===>[!!!Collector]Failed to response:", err)
+						continue
+					}
+				} else {
+					fmt.Println("I am an adversary")
+				}
+			}
+		case <-collector.ProposalTimer.C:
+			{
+				collector.ProposalTimer.Stop()
+
+				config.DownloadFile("http://172.18.208.214/TC", "download/TC")
+				tcSet := config.ReadFileStringArray("download/TC")
+				subset := util.IsSubSet(collector.LocalTC, tcSet)
+				if !subset {
+					fmt.Println("===>[Collector]Message on Bulletin Board is wrong! Reboot")
+					// TODO
+
+					// send new-leader blame
+					boardIp := config.GetBoardIP()
+					fmt.Println("===>[Collector]Board IP is:", boardIp)
+
+					conn, err := grpc.Dial(boardIp, grpc.WithTransportCredentials(insecure.NewCredentials()))
 					if err != nil {
 						fmt.Println("===>[!!!Collector]did not connect:", err)
 						continue
 					}
 
-					pc := proposalpb.NewProposalHandleClient(conn)
+					nc := newLeaderpb.NewNewLeaderHandleClient(conn)
 					ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+					defer cancel()
 
-					sig := signature.GenerateMsgSig(1, strconv.Itoa(collector.Round), strconv.Itoa(collector.ID), collector.LocalTC, collector.Signer)
-					_, err = pc.ProposalReceive(ctx, &proposalpb.Proposal{Type: 1, Round: strconv.Itoa(collector.Round), Sender: id, Tc: collector.LocalTC, Sig: sig})
+					sig := signature.GenerateNewLeaderSig(3, strconv.Itoa(collector.Round), strconv.Itoa(collector.View), strconv.Itoa(collector.ID), collector.Signer)
+					_, err = nc.NewLeaderReceive(ctx, &newLeaderpb.NewLeader{Type: 3, Round: strconv.Itoa(collector.Round), View: strconv.Itoa(collector.View), Sender: id, Sig: sig})
 					if err != nil {
-						fmt.Println("Send to", ipAddress)
+						fmt.Println("Send to", boardIp)
 						fmt.Println("===>[!!!Collector]Failed to response:", err)
 						continue
 					}
 
-					cancel()
-					// }
+					// timer
+				} else {
+					fmt.Println("===>[Collector]Message on Bulletin Board is correct! Continue")
 				}
 			}
-
 		case newProposal := <-ackChan:
 			{
 				fmt.Println("===>[Collector]New proposal for:", newProposal)
 
 				// forward phase
-				ipList := util.GetIPAddress("../ipAddress")
+				ipList := config.GetPeerIP()
 
 				for _, ipAddress := range ipList {
 					// if ipAddress != collector.Address {
@@ -365,7 +450,8 @@ func main() {
 					ac := ackpb.NewAckHandleClient(conn)
 					ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 
-					sig := signature.GenerateMsgSig(2, strconv.Itoa(collector.Round), strconv.Itoa(newProposal), totalLocalTC[newProposal], collector.Signer)
+					// sig := signature.GenerateMsgSig(2, strconv.Itoa(collector.Round), strconv.Itoa(newProposal), totalLocalTC[newProposal], collector.Signer)
+					sig := signature.GenerateSig(1, strconv.Itoa(collector.Round), strconv.Itoa(collector.View), strconv.Itoa(collector.ID), collector.LocalTC, collector.Signer)
 					_, err = ac.AckReceive(ctx, &ackpb.Ack{Type: 2, Round: strconv.Itoa(collector.Round), Sender: strconv.Itoa(newProposal), From: strconv.Itoa(collector.ID), Tc: totalLocalTC[newProposal], Sig: sig})
 					if err != nil {
 						fmt.Println("===>[!!!Collector]Failed to response:", err)
@@ -382,7 +468,7 @@ func main() {
 				fmt.Println("===>[Collector]New Notify for:", newNotify)
 
 				// forward phase
-				ipList := util.GetIPAddress("../ipAddress")
+				ipList := config.GetPeerIP()
 
 				for _, ipAddress := range ipList {
 					// if ipAddress != collector.Address {
@@ -395,7 +481,8 @@ func main() {
 					nc := notifypb.NewNotifyHandleClient(conn)
 					ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 
-					sig := signature.GenerateMsgSig(3, strconv.Itoa(collector.Round), strconv.Itoa(newNotify), totalLocalTC[newNotify], collector.Signer)
+					// sig := signature.GenerateMsgSig(3, strconv.Itoa(collector.Round), strconv.Itoa(newNotify), totalLocalTC[newNotify], collector.Signer)
+					sig := signature.GenerateSig(1, strconv.Itoa(collector.Round), strconv.Itoa(collector.View), strconv.Itoa(collector.ID), collector.LocalTC, collector.Signer)
 					aggSig := signature.AggSig(totalLocalSig[newNotify])
 					_, err = nc.NotifyReceive(ctx, &notifypb.Notify{Type: 3, Round: strconv.Itoa(collector.Round), Sender: strconv.Itoa(newNotify), Tc: totalLocalTC[newNotify], Sig: sig, From: strconv.Itoa(collector.ID), Aggsig: aggSig, Aggfrom: totalLocalFrom[newNotify]})
 					if err != nil {
@@ -449,7 +536,7 @@ func main() {
 				}
 
 				// output phase
-				ipList := util.GetIPAddress("../ipAddress")
+				ipList := config.GetPeerIP()
 
 				conn, err := grpc.Dial(ipList[0], grpc.WithTransportCredentials(insecure.NewCredentials()))
 				if err != nil {

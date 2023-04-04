@@ -6,7 +6,6 @@ import (
 	"generator/config"
 	"generator/crypto/timedCommitment"
 	"generator/tcMsgpb"
-	"generator/util"
 	"generator/watch"
 	"math/big"
 	"os"
@@ -31,6 +30,9 @@ func NewGenerator(id int) *Generator {
 		OutputCh: make(chan string),
 	}
 
+	config.DownloadFile("http://172.18.208.214/Config.yml", "download/Config.yml")
+	config.DownloadFile("http://172.18.208.214/IP.yml", "download/IP.yml")
+
 	return g
 }
 
@@ -42,8 +44,7 @@ func main() {
 	index := new(big.Int)
 	f := config.GetF()
 
-	go watch.WatchOutput(generator.OutputCh, "../output")
-
+	watch.WatchOutput(generator.OutputCh, "output")
 	for {
 		select {
 		case <-generator.OutputCh:
@@ -53,11 +54,11 @@ func main() {
 				fmt.Println(timedCommitment.VerifyTC(maskedMsg, h, M_k, a1, a2, z))
 
 				// send TC
-				ipList := util.GetIPAddress("../ipAddress")
-				index.Mod(maskedMsg, big.NewInt(int64(3*f+1)))
+				ipList := config.GetPeerIP()
+				// index.Mod(maskedMsg, big.NewInt(int64(3*f+1)))
+				index.Mod(big.NewInt(int64(generator.ID)), big.NewInt(int64(3*f+1)))
 				fmt.Println(index)
 				ipAddress := ipList[index.Int64()]
-				// ipAddress := ipList[idInt]
 
 				conn, err := grpc.Dial(ipAddress, grpc.WithTransportCredentials(insecure.NewCredentials()))
 				if err != nil {

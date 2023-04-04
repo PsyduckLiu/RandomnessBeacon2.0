@@ -1,6 +1,7 @@
 package main
 
 import (
+	"RB/config"
 	"RB/watch"
 	"encoding/hex"
 	"math/rand"
@@ -11,30 +12,34 @@ func main() {
 	// binaryquadraticform.TestInit()
 	// binaryquadraticform.TestExp()
 
-	// config.InitGroup()
+	config.InitGroup()
 	// maskedMsg, h, M_k, a1, a2, z := timedCommitment.GenerateTC()
 	// fmt.Println(timedCommitment.VerifyTC(maskedMsg, h, M_k, a1, a2, z))
 
 	// timedCommitment.ForcedOpen(maskedMsg, h)
 
 	// fmt.Println("Signature Verification ", testSig())
-	// for {
-	// 	rand.Seed(time.Now().UnixNano())
-	// 	b := make([]byte, 6)
-	// 	rand.Read(b)
-	// 	rand_str := hex.EncodeToString(b)
 
-	// 	watch.WriteFile("../output", rand_str)
+	watch.WatchOutput("output")
+	for {
+		rand.Seed(time.Now().UnixNano())
+		b := make([]byte, 6)
+		rand.Read(b)
+		rand_str := hex.EncodeToString(b)
 
-	// 	time.Sleep(50000 * time.Second)
-	// }
+		config.WriteFile("/var/www/html/output", rand_str)
 
-	rand.Seed(time.Now().UnixNano())
-	b := make([]byte, 6)
-	rand.Read(b)
-	rand_str := hex.EncodeToString(b)
+		time.Sleep(5 * time.Second)
+	}
 
-	watch.WriteFile("../output", rand_str)
+	// config.InitGroup()
+
+	// rand.Seed(time.Now().UnixNano())
+	// b := make([]byte, 6)
+	// rand.Read(b)
+	// rand_str := hex.EncodeToString(b)
+
+	// watch.WriteFile("../output", rand_str)
 }
 
 // func testSig() bool {

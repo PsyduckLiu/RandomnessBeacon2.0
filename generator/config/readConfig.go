@@ -10,7 +10,8 @@ import (
 func GetGroupParameter() (int, int, int) {
 	// set config file
 	configViper := viper.New()
-	configViper.SetConfigFile("../Config.yml")
+	// // configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/Config.yml")
 
 	if err := configViper.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
@@ -23,7 +24,8 @@ func GetGroupParameter() (int, int, int) {
 func GetTimeParameter() int {
 	// set config file
 	configViper := viper.New()
-	configViper.SetConfigFile("../Config.yml")
+	// configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/Config.yml")
 
 	if err := configViper.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
@@ -36,7 +38,8 @@ func GetTimeParameter() int {
 func GetPublicGroupParameter() (int, int, int, int, int, int) {
 	// set config file
 	configViper := viper.New()
-	configViper.SetConfigFile("../Config.yml")
+	// configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/Config.yml")
 
 	if err := configViper.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
@@ -49,7 +52,8 @@ func GetPublicGroupParameter() (int, int, int, int, int, int) {
 func GetPublicParameterProof() (int, int, int) {
 	// set config file
 	configViper := viper.New()
-	configViper.SetConfigFile("../Config.yml")
+	// configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/Config.yml")
 
 	if err := configViper.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
@@ -62,11 +66,46 @@ func GetPublicParameterProof() (int, int, int) {
 func GetF() int {
 	// set config file
 	configViper := viper.New()
-	configViper.SetConfigFile("../Config.yml")
+	// configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/Config.yml")
 
 	if err := configViper.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("===>[ERROR from GetF]Read config file failed:%s", err))
 	}
 
 	return configViper.GetInt("f")
+}
+
+// get peer IP from ipAdress config file
+func GetPeerIP() []string {
+	// set config file
+	configViper := viper.New()
+	// configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/IP.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
+	}
+
+	var ipList []string
+	ipList = append(ipList, configViper.GetString("peer0"))
+	ipList = append(ipList, configViper.GetString("peer1"))
+	ipList = append(ipList, configViper.GetString("peer2"))
+	ipList = append(ipList, configViper.GetString("peer3"))
+
+	return ipList
+}
+
+// get board IP from ipAdress config file
+func GetBoardIP() string {
+	// set config file
+	configViper := viper.New()
+	// configViper.SetConfigFile("../Config.yml")
+	configViper.SetConfigFile("download/IP.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
+	}
+
+	return configViper.GetString("board")
 }

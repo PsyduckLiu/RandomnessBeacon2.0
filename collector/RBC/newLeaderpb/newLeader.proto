@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package newLeaderpb;
+
+option go_package = "../newLeaderpb";
+
+// The NewLeaderHandle service definition.
+service NewLeaderHandle {
+  // Handles a received newLeader message
+  rpc NewLeaderReceive (NewLeader) returns (NewLeaderResponse) {}
+}
+
+// The request message containing the user's name.
+message NewLeader {
+  int64 type = 1;
+  string round = 2;
+  string view = 3;
+  string sender = 4;
+  string sig = 6;
+}
+
+message NewLeaderResponse {}

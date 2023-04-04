@@ -8,6 +8,8 @@ import (
 )
 
 func InitGroup() {
+	DownloadFile("http://172.18.208.214/Config.yml", "download/Config.yml")
+
 	a, b, c := GetGroupParameter()
 	t := GetTimeParameter()
 
