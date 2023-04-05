@@ -9,7 +9,7 @@ import (
 	blsSig "go.dedis.ch/dela/crypto/bls"
 )
 
-func GenerateSig(msgtype int64, round string, view string, sender string, tc []string, signer blsSig.Signer) string {
+func GenerateSubmitSig(msgtype int64, round string, view string, sender string, tc []string, signer blsSig.Signer) string {
 	tHash := new(big.Int).SetBytes(util.Digest((msgtype)))
 	rHash := new(big.Int).SetBytes(util.Digest((round)))
 	vHash := new(big.Int).SetBytes(util.Digest((view)))
@@ -22,6 +22,29 @@ func GenerateSig(msgtype int64, round string, view string, sender string, tc []s
 	e.Xor(e, vHash)
 	e.Xor(e, sHash)
 	e.Xor(e, tcHash)
+
+	signature, err := signer.Sign(e.Bytes())
+	if err != nil {
+		panic(fmt.Errorf("===>[ERROR from GenerateSig]Failed to generate signature: %s", err))
+	}
+
+	result, err := signature.MarshalBinary()
+	if err != nil {
+		panic(fmt.Errorf("===>[ERROR from GenerateSig]Failed to generate signature: %s", err))
+	}
+
+	return hex.EncodeToString(result)
+}
+
+func GenerateNewKeySig(msgtype int64, sender string, pk string, signer blsSig.Signer) string {
+	tHash := new(big.Int).SetBytes(util.Digest((msgtype)))
+	sHash := new(big.Int).SetBytes(util.Digest((sender)))
+	pkHash := new(big.Int).SetBytes(util.Digest(pk))
+
+	e := big.NewInt(0)
+	e.Xor(e, tHash)
+	e.Xor(e, sHash)
+	e.Xor(e, pkHash)
 
 	signature, err := signer.Sign(e.Bytes())
 	if err != nil {
@@ -61,15 +84,19 @@ func GenerateNewLeaderSig(msgtype int64, round string, view string, sender strin
 	return hex.EncodeToString(result)
 }
 
-func GenerateOutputSig(msgtype int64, round string, randomNumber string, signer blsSig.Signer) string {
+func GenerateOutputSig(msgtype int64, round string, view string, randomNumber string, sender string, signer blsSig.Signer) string {
 	tHash := new(big.Int).SetBytes(util.Digest((msgtype)))
 	rHash := new(big.Int).SetBytes(util.Digest((round)))
+	vHash := new(big.Int).SetBytes(util.Digest((view)))
 	rnHash := new(big.Int).SetBytes(util.Digest((randomNumber)))
+	sHash := new(big.Int).SetBytes(util.Digest((sender)))
 
 	e := big.NewInt(0)
 	e.Xor(e, tHash)
 	e.Xor(e, rHash)
+	e.Xor(e, vHash)
 	e.Xor(e, rnHash)
+	e.Xor(e, sHash)
 
 	signature, err := signer.Sign(e.Bytes())
 	if err != nil {

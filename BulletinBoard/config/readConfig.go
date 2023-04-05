@@ -9,6 +9,19 @@ import (
 	blsSig "go.dedis.ch/dela/crypto/bls"
 )
 
+// get cboard ip from config file
+func GetBoardIP() string {
+	// set config file
+	configViper := viper.New()
+	configViper.SetConfigFile("../boardIP.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
+	}
+
+	return configViper.GetString("ip")
+}
+
 // get class group parameter from config file
 func GetGroupParameter() (int, int, int) {
 	// set config file
@@ -81,7 +94,10 @@ func GetF() int {
 
 // get public key
 func GetKey(id int) blsCrypto.PublicKey {
-	DownloadFile("http://172.18.208.214/Key.yml", "download/Key.yml")
+	boardIP := GetBoardIP()
+	filename := "http://" + boardIP + "/Key.yml"
+	DownloadFile(filename, "download/Key.yml")
+
 	// set config file
 	configViper := viper.New()
 	// configViper.SetConfigFile("../Key.yml")

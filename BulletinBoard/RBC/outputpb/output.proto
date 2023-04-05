@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package outputpb;
+
+option go_package = "../outputpb";
+
+// The outputHandle service definition.
+service OutputHandle {
+  // Handles a received output message
+  rpc OutputReceive (Output) returns (OutputResponse) {}
+}
+
+// The request message containing the user's name.
+message Output {
+  int64 type = 1;
+  string round = 2;
+  string view = 3;
+  string randomNumber = 4;
+  string sig = 5;
+  string sender = 6;
+}
+
+message OutputResponse {}

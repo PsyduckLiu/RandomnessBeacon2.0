@@ -1,30 +1,461 @@
-===>[WriteKey]Write public key success
-===>[Collector]Collector is listening at 127.0.0.1:30000===>[WatchOutput]New output is: 62f3c2e99c4d
+===>[Collector]Collector is listening at 127.0.0.1:30000===>[WatchOutput]New output is: 52c25e0fc404
 
 ===>[Collector]Round: 1
-===>[TcMsgReceive]The group element h is (a=15947,b=9468,c=33314,d=-2035390408)
-===>[TcMsgReceive]The group element M_K is (a=1849,b=1388,c=275462,d=-2035390408)
-===>[TcMsgReceive]The group element a1 is (a=21527,b=-18258,c=27509,d=-2035390408)
-===>[TcMsgReceive]The group element a2 is (a=9889,b=-8908,c=53462,d=-2035390408)
+===>[TcMsgReceive]The group element h is (a=7438,b=-6312,c=69751,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=22577,b=15428,c=25174,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=839,b=-10,c=606493,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=20683,b=-1106,c=24617,d=-2035390408)
 ===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
 ===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
 ===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
 ===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
 ===>[VerifyTC]Upper bound of alpha is 22557.
 ===>[TcMsgReceive]new tc pass!!!
-===>[TcMsgReceive]The group element h is (a=20903,b=17286,c=27917,d=-2035390408)
-===>[TcMsgReceive]The group element M_K is (a=22226,b=-19316,c=27091,d=-2035390408)
-===>[TcMsgReceive]The group element a1 is (a=6829,b=-4454,c=75239,d=-2035390408)
-===>[TcMsgReceive]The group element a2 is (a=17441,b=-6226,c=29731,d=-2035390408)
+===>[TcMsgReceive]The group element h is (a=15283,b=2460,c=33394,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=811,b=722,c=627593,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=19198,b=-3736,c=26687,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=10523,b=6244,c=49282,d=-2035390408)
 ===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
 ===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
 ===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
 ===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
 ===>[VerifyTC]Upper bound of alpha is 22557.
 ===>[TcMsgReceive]new tc pass!!!
-===>[Collector]New TC is: [{"MaskedMsg":"91058168050902706174234375229828707092850002513023666155380308826604992304306","HA":"15947","HB":"9468","HC":"33314"} {"MaskedMsg":"109650520729264308743822460333082963670477270813175675643669382617963824384355","HA":"20903","HB":"17286","HC":"27917"}]
+===>[Collector]New TC is: [{"MaskedMsg":"60415026967767354252244271439854054590214261063958367263695181248253088043045","HA":"7438","HB":"-6312","HC":"69751"} {"MaskedMsg":"31195035117052036726351342735591145134114603585224837955369904100833691016992","HA":"15283","HB":"2460","HC":"33394"}]
 ===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
 ===>[Collector]Leader IP is: 127.0.0.1:30001
-==>[ReadFileStringArray] Read  [{"MaskedMsg":"48772576403133490876379815602128582785407557089905672581871730967979776143352","HA":"9251","HB":"5080","HC":"55702"} {"MaskedMsg":"108675151978195397176626231965496440560059010050444450471175571629520135682126","HA":"8683","HB":"4466","HC":"59177"} {"MaskedMsg":"39276921115300510381206472254172844771037855106529269595458498857265345357618","HA":"5177","HB":"-3182","HC":"98779"} {"MaskedMsg":"100278125910107068287229205248190946940822008548328984328682632617106833856239","HA":"15542","HB":"9292","HC":"34129"} {"MaskedMsg":"111750982574287022670968884534010372612937001703909115650046516326533812458121","HA":"13889","HB":"-590","HC":"36643"}]
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"89553341028297636255689422217893978776909696983643702812583762278404739590114","HA":"5599","HB":"948","HC":"90922"} {"MaskedMsg":"79098763936228077634498548868597320851229535972052227997645585248320552267702","HA":"8987","HB":"-6290","HC":"57721"} {"MaskedMsg":"37839256235699635228339568304831536886155065154521315696252092055556988371375","HA":"7978","HB":"7716","HC":"65647"} {"MaskedMsg":"60415026967767354252244271439854054590214261063958367263695181248253088043045","HA":"7438","HB":"-6312","HC":"69751"} {"MaskedMsg":"31195035117052036726351342735591145134114603585224837955369904100833691016992","HA":"15283","HB":"2460","HC":"33394"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"89553341028297636255689422217893978776909696983643702812583762278404739590114","HA":"5599","HB":"948","HC":"90922"} {"MaskedMsg":"79098763936228077634498548868597320851229535972052227997645585248320552267702","HA":"8987","HB":"-6290","HC":"57721"} {"MaskedMsg":"37839256235699635228339568304831536886155065154521315696252092055556988371375","HA":"7978","HB":"7716","HC":"65647"} {"MaskedMsg":"60415026967767354252244271439854054590214261063958367263695181248253088043045","HA":"7438","HB":"-6312","HC":"69751"} {"MaskedMsg":"31195035117052036726351342735591145134114603585224837955369904100833691016992","HA":"15283","HB":"2460","HC":"33394"}]
+===>[Collector]The group element h is (a=5599,b=948,c=90922,d=-2035390408)
+===>[ForcedOpen]opened msg is 452627927472928
+===>[Collector]The group element h is (a=8987,b=-6290,c=57721,d=-2035390408)
+===>[ForcedOpen]opened msg is 119546268069749
+===>[Collector]The group element h is (a=7978,b=7716,c=65647,d=-2035390408)
+===>[ForcedOpen]opened msg is 226699487531707
+===>[Collector]The group element h is (a=7438,b=-6312,c=69751,d=-2035390408)
+===>[ForcedOpen]opened msg is 75554528129998
+===>[Collector]The group element h is (a=15283,b=2460,c=33394,d=-2035390408)
+===>[ForcedOpen]opened msg is 12242056816487
+===>[WatchOutput]New output is: 411938967499335
+
+===>[Collector]Round: 2
+===>[TcMsgReceive]The group element h is (a=12086,b=480,c=42107,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=1937,b=-558,c=262739,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=3154,b=-664,c=161369,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=3554,b=-2532,c=143627,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=14638,b=-1052,c=34781,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=17747,b=17186,c=32833,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=14458,b=-9164,c=36647,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=16153,b=5708,c=32006,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"15440180431704989591518598966822825308447663159281202676219088738456717041418","HA":"12086","HB":"480","HC":"42107"} {"MaskedMsg":"69207288270396517182578245068282800073496850575831480580637913015730584420958","HA":"14638","HB":"-1052","HC":"34781"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30002
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"43766972571092290129899953671973226511153958085379257384674892516805781752536","HA":"13981","HB":"-1406","HC":"36431"} {"MaskedMsg":"78371170145945122710147756938612825099942924253706251996697889125023404233789","HA":"9379","HB":"-4150","HC":"54713"} {"MaskedMsg":"15440180431704989591518598966822825308447663159281202676219088738456717041418","HA":"12086","HB":"480","HC":"42107"} {"MaskedMsg":"69207288270396517182578245068282800073496850575831480580637913015730584420958","HA":"14638","HB":"-1052","HC":"34781"} {"MaskedMsg":"16341643126531599761988080165439565176960696937188572935858950829487840046786","HA":"20179","HB":"9338","HC":"26297"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"43766972571092290129899953671973226511153958085379257384674892516805781752536","HA":"13981","HB":"-1406","HC":"36431"} {"MaskedMsg":"78371170145945122710147756938612825099942924253706251996697889125023404233789","HA":"9379","HB":"-4150","HC":"54713"} {"MaskedMsg":"15440180431704989591518598966822825308447663159281202676219088738456717041418","HA":"12086","HB":"480","HC":"42107"} {"MaskedMsg":"69207288270396517182578245068282800073496850575831480580637913015730584420958","HA":"14638","HB":"-1052","HC":"34781"} {"MaskedMsg":"16341643126531599761988080165439565176960696937188572935858950829487840046786","HA":"20179","HB":"9338","HC":"26297"}]
+===>[Collector]The group element h is (a=13981,b=-1406,c=36431,d=-2035390408)
+===>[ForcedOpen]opened msg is 778595693128788
+===>[Collector]The group element h is (a=9379,b=-4150,c=54713,d=-2035390408)
+===>[ForcedOpen]opened msg is 462039768838294
+===>[Collector]The group element h is (a=12086,b=480,c=42107,d=-2035390408)
+===>[ForcedOpen]opened msg is 548647314356107
+===>[Collector]The group element h is (a=14638,b=-1052,c=34781,d=-2035390408)
+===>[ForcedOpen]opened msg is 543531704892192
+===>[Collector]The group element h is (a=20179,b=9338,c=26297,d=-2035390408)
+===>[ForcedOpen]opened msg is 572698062760894
+===>[WatchOutput]New output is: 409497165347799
+
+===>[Collector]Round: 3
+===>[TcMsgReceive]The group element h is (a=10582,b=-2224,c=48203,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=12227,b=-3964,c=41938,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=19217,b=9810,c=27731,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=15353,b=6644,c=33862,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=11318,b=-7852,c=46321,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=3467,b=3136,c=147478,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=3349,b=-1168,c=152042,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=12001,b=7544,c=43586,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"83305929685972635627624688247827861805439995199481920374404600189492876949601","HA":"10582","HB":"-2224","HC":"48203"} {"MaskedMsg":"68670460320385021944251384938554773704578316110021930012971311161987533279723","HA":"11318","HB":"-7852","HC":"46321"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30003
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"88489655641120108785994327350827873097308759867512629155378625607016261196660","HA":"16354","HB":"1780","HC":"31163"} {"MaskedMsg":"83305929685972635627624688247827861805439995199481920374404600189492876949601","HA":"10582","HB":"-2224","HC":"48203"} {"MaskedMsg":"68670460320385021944251384938554773704578316110021930012971311161987533279723","HA":"11318","HB":"-7852","HC":"46321"} {"MaskedMsg":"105653442803843144066092947169155787220333000847305506467422850695772788156520","HA":"4429","HB":"1106","HC":"114959"} {"MaskedMsg":"81899827899882774180625720554378216464967694959883538136733429142614433138135","HA":"373","HB":"-344","HC":"1364282"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"88489655641120108785994327350827873097308759867512629155378625607016261196660","HA":"16354","HB":"1780","HC":"31163"} {"MaskedMsg":"83305929685972635627624688247827861805439995199481920374404600189492876949601","HA":"10582","HB":"-2224","HC":"48203"} {"MaskedMsg":"68670460320385021944251384938554773704578316110021930012971311161987533279723","HA":"11318","HB":"-7852","HC":"46321"} {"MaskedMsg":"105653442803843144066092947169155787220333000847305506467422850695772788156520","HA":"4429","HB":"1106","HC":"114959"} {"MaskedMsg":"81899827899882774180625720554378216464967694959883538136733429142614433138135","HA":"373","HB":"-344","HC":"1364282"}]
+===>[Collector]The group element h is (a=16354,b=1780,c=31163,d=-2035390408)
+===>[ForcedOpen]opened msg is 518899300276290
+===>[Collector]The group element h is (a=10582,b=-2224,c=48203,d=-2035390408)
+===>[ForcedOpen]opened msg is 970202169599735
+===>[Collector]The group element h is (a=11318,b=-7852,c=46321,d=-2035390408)
+===>[ForcedOpen]opened msg is 840888685484989
+===>[Collector]The group element h is (a=4429,b=1106,c=114959,d=-2035390408)
+===>[ForcedOpen]opened msg is 331285007601883
+===>[Collector]The group element h is (a=373,b=-344,c=1364282,d=-2035390408)
+===>[ForcedOpen]opened msg is 185138775155587
+===>[WatchOutput]New output is: 523846211950160
+
+===>[Collector]Round: 4
+===>[TcMsgReceive]The group element h is (a=9889,b=-662,c=51467,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=20179,b=-158,c=25217,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=20281,b=-1144,c=25106,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=15851,b=-838,c=32113,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=23761,b=-16066,c=24131,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=4961,b=-3760,c=103282,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=18821,b=-14060,c=29662,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=113,b=82,c=4503091,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[SubmitReceive]Received: Round: 4 Sender: 1 TC: [{"MaskedMsg":"44980477042317711587847324420362907914932682447307905352957559629083489364154","HA":"7879","HB":"1112","HC":"64622"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"44980477042317711587847324420362907914932682447307905352957559629083489364154","HA":"7879","HB":"1112","HC":"64622"}]
+===>[SubmitReceive]Received: Round: 4 Sender: 2 TC: [{"MaskedMsg":"33483523571287490015109999988468586061409938762892458243473005921882469755970","HA":"12343","HB":"1322","HC":"41261"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"33483523571287490015109999988468586061409938762892458243473005921882469755970","HA":"12343","HB":"1322","HC":"41261"}]
+===>[Collector]New TC is: [{"MaskedMsg":"5280248796505505099619205992438609355482544314034666066162695009361773524906","HA":"9889","HB":"-662","HC":"51467"} {"MaskedMsg":"82652050940198280547353047227759801937131958090741463547876655638267534545690","HA":"23761","HB":"-16066","HC":"24131"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30000
+===>[SubmitReceive]Received: Round: 4 Sender: 3 TC: [{"MaskedMsg":"89464502853444134050418322295701189497486300867365480241202888326890558328098","HA":"7673","HB":"5960","HC":"67474"}]
+===>[SubmitReceive]Received: Round: 4 Sender: 0 TC: [{"MaskedMsg":"5280248796505505099619205992438609355482544314034666066162695009361773524906","HA":"9889","HB":"-662","HC":"51467"} {"MaskedMsg":"82652050940198280547353047227759801937131958090741463547876655638267534545690","HA":"23761","HB":"-16066","HC":"24131"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"5280248796505505099619205992438609355482544314034666066162695009361773524906","HA":"9889","HB":"-662","HC":"51467"} {"MaskedMsg":"82652050940198280547353047227759801937131958090741463547876655638267534545690","HA":"23761","HB":"-16066","HC":"24131"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"89464502853444134050418322295701189497486300867365480241202888326890558328098","HA":"7673","HB":"5960","HC":"67474"}]
+===>[Leader][Collector]New total TC is: [{"MaskedMsg":"44980477042317711587847324420362907914932682447307905352957559629083489364154","HA":"7879","HB":"1112","HC":"64622"} {"MaskedMsg":"33483523571287490015109999988468586061409938762892458243473005921882469755970","HA":"12343","HB":"1322","HC":"41261"} {"MaskedMsg":"5280248796505505099619205992438609355482544314034666066162695009361773524906","HA":"9889","HB":"-662","HC":"51467"} {"MaskedMsg":"82652050940198280547353047227759801937131958090741463547876655638267534545690","HA":"23761","HB":"-16066","HC":"24131"} {"MaskedMsg":"89464502853444134050418322295701189497486300867365480241202888326890558328098","HA":"7673","HB":"5960","HC":"67474"}]
+===>[Collector]Board IP is: 127.0.0.1:40000
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"44980477042317711587847324420362907914932682447307905352957559629083489364154","HA":"7879","HB":"1112","HC":"64622"} {"MaskedMsg":"33483523571287490015109999988468586061409938762892458243473005921882469755970","HA":"12343","HB":"1322","HC":"41261"} {"MaskedMsg":"5280248796505505099619205992438609355482544314034666066162695009361773524906","HA":"9889","HB":"-662","HC":"51467"} {"MaskedMsg":"82652050940198280547353047227759801937131958090741463547876655638267534545690","HA":"23761","HB":"-16066","HC":"24131"} {"MaskedMsg":"89464502853444134050418322295701189497486300867365480241202888326890558328098","HA":"7673","HB":"5960","HC":"67474"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"44980477042317711587847324420362907914932682447307905352957559629083489364154","HA":"7879","HB":"1112","HC":"64622"} {"MaskedMsg":"33483523571287490015109999988468586061409938762892458243473005921882469755970","HA":"12343","HB":"1322","HC":"41261"} {"MaskedMsg":"5280248796505505099619205992438609355482544314034666066162695009361773524906","HA":"9889","HB":"-662","HC":"51467"} {"MaskedMsg":"82652050940198280547353047227759801937131958090741463547876655638267534545690","HA":"23761","HB":"-16066","HC":"24131"} {"MaskedMsg":"89464502853444134050418322295701189497486300867365480241202888326890558328098","HA":"7673","HB":"5960","HC":"67474"}]
+===>[Collector]The group element h is (a=7879,b=1112,c=64622,d=-2035390408)
+===>[ForcedOpen]opened msg is 790770522838542
+===>[Collector]The group element h is (a=12343,b=1322,c=41261,d=-2035390408)
+===>[ForcedOpen]opened msg is 186529824176334
+===>[Collector]The group element h is (a=9889,b=-662,c=51467,d=-2035390408)
+===>[ForcedOpen]opened msg is 856348221588265
+===>[Collector]The group element h is (a=23761,b=-16066,c=24131,d=-2035390408)
+===>[ForcedOpen]opened msg is 390620314847447
+===>[Collector]The group element h is (a=7673,b=5960,c=67474,d=-2035390408)
+===>[ForcedOpen]opened msg is 639051284832302
+===>[Collector]Board IP is: 127.0.0.1:40000
+===>[WatchOutput]New output is: 644573754934544
+
+===>[Collector]Round: 5
+===>[TcMsgReceive]The group element h is (a=5258,b=3496,c=97357,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=17953,b=10388,c=29846,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=407,b=218,c=1250269,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=9586,b=4468,c=53603,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=563,b=-74,c=903817,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=19499,b=13102,c=28297,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=21242,b=2224,c=24013,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=4961,b=2308,c=102838,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"23480503076676098348403319743552777033253873200793467775367672725041673471486","HA":"5258","HB":"3496","HC":"97357"} {"MaskedMsg":"89316160917382962505938889822296632189810454593861929986121514682185992267721","HA":"563","HB":"-74","HC":"903817"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30001
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"75374980723051668588048839855699485302636059768037151443243214335642151889077","HA":"11314","HB":"2724","HC":"45139"} {"MaskedMsg":"484252156739882380443857085993872238821398488346369605361292505883629837898","HA":"16367","HB":"-454","HC":"31093"} {"MaskedMsg":"39276921115300510381206472254172844771037855106529269595458499501474137447194","HA":"9659","HB":"3602","HC":"53017"} {"MaskedMsg":"23480503076676098348403319743552777033253873200793467775367672725041673471486","HA":"5258","HB":"3496","HC":"97357"} {"MaskedMsg":"89316160917382962505938889822296632189810454593861929986121514682185992267721","HA":"563","HB":"-74","HC":"903817"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"75374980723051668588048839855699485302636059768037151443243214335642151889077","HA":"11314","HB":"2724","HC":"45139"} {"MaskedMsg":"484252156739882380443857085993872238821398488346369605361292505883629837898","HA":"16367","HB":"-454","HC":"31093"} {"MaskedMsg":"39276921115300510381206472254172844771037855106529269595458499501474137447194","HA":"9659","HB":"3602","HC":"53017"} {"MaskedMsg":"23480503076676098348403319743552777033253873200793467775367672725041673471486","HA":"5258","HB":"3496","HC":"97357"} {"MaskedMsg":"89316160917382962505938889822296632189810454593861929986121514682185992267721","HA":"563","HB":"-74","HC":"903817"}]
+===>[Collector]The group element h is (a=11314,b=2724,c=45139,d=-2035390408)
+===>[ForcedOpen]opened msg is 419572276713931
+===>[Collector]The group element h is (a=16367,b=-454,c=31093,d=-2035390408)
+===>[ForcedOpen]opened msg is 165361872651596
+===>[Collector]The group element h is (a=9659,b=3602,c=53017,d=-2035390408)
+===>[ForcedOpen]opened msg is 1063713570088935
+===>[Collector]The group element h is (a=5258,b=3496,c=97357,d=-2035390408)
+===>[ForcedOpen]opened msg is 677507792052609
+===>[Collector]The group element h is (a=563,b=-74,c=903817,d=-2035390408)
+===>[ForcedOpen]opened msg is 370137207352877
+===>[WatchOutput]New output is: 303597310440652
+
+===>[Collector]Round: 6
+===>[TcMsgReceive]The group element h is (a=15943,b=11362,c=33941,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=20897,b=-13226,c=26443,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=20522,b=-7708,c=25519,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=21923,b=10492,c=24466,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=3742,b=-56,c=135983,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=4339,b=-2934,c=117769,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=19097,b=11896,c=28498,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=7163,b=5186,c=71977,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"35487232732890719342151191148254683116373288099950492175765727390345089089540","HA":"15943","HB":"11362","HC":"33941"} {"MaskedMsg":"13656573326796858844169315350906093560887351109834972399182504711887054660096","HA":"3742","HB":"-56","HC":"135983"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30002
+==>[ReadFileStringArray] Read  []
 ===>[Collector]Message on Bulletin Board is wrong! Reboot
 ===>[Collector]Board IP is: 127.0.0.1:40000
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: []
+===>[WatchOutput]New output is: 270710761533704
+
+===>[Collector]Round: 7
+===>[TcMsgReceive]The group element h is (a=19829,b=-310,c=25663,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=1147,b=662,c=443729,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=451,b=-152,c=1128278,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=7697,b=-2248,c=66274,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=11134,b=-10392,c=48127,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=22171,b=-13718,c=25073,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=11902,b=1824,c=42823,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=10841,b=-7774,c=48331,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"21995817444073029481564004104375642990436445024969168615786451344118004377125","HA":"19829","HB":"-310","HC":"25663"} {"MaskedMsg":"82794305572895617194519663039325916572273622410889239207469895619827791677853","HA":"11134","HB":"-10392","HC":"48127"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30003
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"21995817444073029481564004104375642990436445024969168615786451344118004377125","HA":"19829","HB":"-310","HC":"25663"} {"MaskedMsg":"82794305572895617194519663039325916572273622410889239207469895619827791677853","HA":"11134","HB":"-10392","HC":"48127"} {"MaskedMsg":"82109771282143548401097516722122807981109613092116446477147186270584845632477","HA":"19771","HB":"-7696","HC":"26486"} {"MaskedMsg":"49719052169346500512189059292341186446861033492670008704893189002283890597633","HA":"4342","HB":"-844","HC":"117233"} {"MaskedMsg":"9565695415080070153721038814744287953747015075112626468311927680982660788823","HA":"17546","HB":"-12256","HC":"31141"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"21995817444073029481564004104375642990436445024969168615786451344118004377125","HA":"19829","HB":"-310","HC":"25663"} {"MaskedMsg":"82794305572895617194519663039325916572273622410889239207469895619827791677853","HA":"11134","HB":"-10392","HC":"48127"} {"MaskedMsg":"82109771282143548401097516722122807981109613092116446477147186270584845632477","HA":"19771","HB":"-7696","HC":"26486"} {"MaskedMsg":"49719052169346500512189059292341186446861033492670008704893189002283890597633","HA":"4342","HB":"-844","HC":"117233"} {"MaskedMsg":"9565695415080070153721038814744287953747015075112626468311927680982660788823","HA":"17546","HB":"-12256","HC":"31141"}]
+===>[Collector]The group element h is (a=19829,b=-310,c=25663,d=-2035390408)
+===>[ForcedOpen]opened msg is 509829012417847
+===>[Collector]The group element h is (a=11134,b=-10392,c=48127,d=-2035390408)
+===>[ForcedOpen]opened msg is 204531024460101
+===>[Collector]The group element h is (a=19771,b=-7696,c=26486,d=-2035390408)
+===>[ForcedOpen]opened msg is 380281839093842
+===>[Collector]The group element h is (a=4342,b=-844,c=117233,d=-2035390408)
+===>[ForcedOpen]opened msg is 633990058025512
+===>[Collector]The group element h is (a=17546,b=-12256,c=31141,d=-2035390408)
+===>[ForcedOpen]opened msg is 274779067730395
+===>[WatchOutput]New output is: 726790763313107
+
+===>[Collector]Round: 8
+===>[TcMsgReceive]The group element h is (a=3502,b=488,c=145319,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=1921,b=-760,c=264962,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=6253,b=4666,c=82247,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=24179,b=-23114,c=26569,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=9862,b=5832,c=52459,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=19289,b=-8040,c=27218,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=19694,b=-2740,c=25933,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=1147,b=-662,c=443729,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[SubmitReceive]Received: Round: 8 Sender: 3 TC: [{"MaskedMsg":"28097440699384448513649066561418537266029767027745220530598957967010604367832","HA":"5833","HB":"-1920","HC":"87394"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"28097440699384448513649066561418537266029767027745220530598957967010604367832","HA":"5833","HB":"-1920","HC":"87394"}]
+===>[SubmitReceive]Received: Round: 8 Sender: 1 TC: [{"MaskedMsg":"20969832478894654230274576743934543357285076333802975305273920904194199798004","HA":"5423","HB":"3456","HC":"94382"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"20969832478894654230274576743934543357285076333802975305273920904194199798004","HA":"5423","HB":"3456","HC":"94382"}]
+===>[SubmitReceive]Received: Round: 8 Sender: 2 TC: [{"MaskedMsg":"148927339596371510798775424575161304473195839894497486289970146627717649264","HA":"18226","HB":"-15092","HC":"31043"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"148927339596371510798775424575161304473195839894497486289970146627717649264","HA":"18226","HB":"-15092","HC":"31043"}]
+===>[Collector]New TC is: [{"MaskedMsg":"71616567908657880623014140440155377689498769126228506814401616986958701020565","HA":"3502","HB":"488","HC":"145319"} {"MaskedMsg":"46917364052119051190213566555511997259952438144187185879421386059322724275969","HA":"9862","HB":"5832","HC":"52459"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30000
+===>[SubmitReceive]Received: Round: 8 Sender: 0 TC: [{"MaskedMsg":"71616567908657880623014140440155377689498769126228506814401616986958701020565","HA":"3502","HB":"488","HC":"145319"} {"MaskedMsg":"46917364052119051190213566555511997259952438144187185879421386059322724275969","HA":"9862","HB":"5832","HC":"52459"}]
+===>[SubmitReceive]Verify  true
+[{"MaskedMsg":"71616567908657880623014140440155377689498769126228506814401616986958701020565","HA":"3502","HB":"488","HC":"145319"} {"MaskedMsg":"46917364052119051190213566555511997259952438144187185879421386059322724275969","HA":"9862","HB":"5832","HC":"52459"}]
+===>[Leader][Collector]New total TC is: [{"MaskedMsg":"28097440699384448513649066561418537266029767027745220530598957967010604367832","HA":"5833","HB":"-1920","HC":"87394"} {"MaskedMsg":"20969832478894654230274576743934543357285076333802975305273920904194199798004","HA":"5423","HB":"3456","HC":"94382"} {"MaskedMsg":"148927339596371510798775424575161304473195839894497486289970146627717649264","HA":"18226","HB":"-15092","HC":"31043"} {"MaskedMsg":"71616567908657880623014140440155377689498769126228506814401616986958701020565","HA":"3502","HB":"488","HC":"145319"} {"MaskedMsg":"46917364052119051190213566555511997259952438144187185879421386059322724275969","HA":"9862","HB":"5832","HC":"52459"}]
+===>[Collector]Board IP is: 127.0.0.1:40000
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"28097440699384448513649066561418537266029767027745220530598957967010604367832","HA":"5833","HB":"-1920","HC":"87394"} {"MaskedMsg":"20969832478894654230274576743934543357285076333802975305273920904194199798004","HA":"5423","HB":"3456","HC":"94382"} {"MaskedMsg":"148927339596371510798775424575161304473195839894497486289970146627717649264","HA":"18226","HB":"-15092","HC":"31043"} {"MaskedMsg":"71616567908657880623014140440155377689498769126228506814401616986958701020565","HA":"3502","HB":"488","HC":"145319"} {"MaskedMsg":"46917364052119051190213566555511997259952438144187185879421386059322724275969","HA":"9862","HB":"5832","HC":"52459"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"28097440699384448513649066561418537266029767027745220530598957967010604367832","HA":"5833","HB":"-1920","HC":"87394"} {"MaskedMsg":"20969832478894654230274576743934543357285076333802975305273920904194199798004","HA":"5423","HB":"3456","HC":"94382"} {"MaskedMsg":"148927339596371510798775424575161304473195839894497486289970146627717649264","HA":"18226","HB":"-15092","HC":"31043"} {"MaskedMsg":"71616567908657880623014140440155377689498769126228506814401616986958701020565","HA":"3502","HB":"488","HC":"145319"} {"MaskedMsg":"46917364052119051190213566555511997259952438144187185879421386059322724275969","HA":"9862","HB":"5832","HC":"52459"}]
+===>[Collector]The group element h is (a=5833,b=-1920,c=87394,d=-2035390408)
+===>[ForcedOpen]opened msg is 534839053409924
+===>[Collector]The group element h is (a=5423,b=3456,c=94382,d=-2035390408)
+===>[ForcedOpen]opened msg is 949526961501466
+===>[Collector]The group element h is (a=18226,b=-15092,c=31043,d=-2035390408)
+===>[ForcedOpen]opened msg is 401252264988188
+===>[Collector]The group element h is (a=3502,b=488,c=145319,d=-2035390408)
+===>[ForcedOpen]opened msg is 801046136665533
+===>[Collector]The group element h is (a=9862,b=5832,c=52459,d=-2035390408)
+===>[ForcedOpen]opened msg is 296451906170370
+===>[Collector]Board IP is: 127.0.0.1:40000
+===>[WatchOutput]New output is: 20412595773
+
+===>[Collector]Round: 9
+===>[TcMsgReceive]The group element h is (a=697,b=-12,c=730054,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=361,b=284,c=1409606,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=1213,b=-682,c=419591,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=17441,b=3618,c=29363,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=15521,b=3320,c=32962,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=8987,b=-1388,c=56674,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=20549,b=9592,c=25882,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=24259,b=-20184,c=25174,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"79001261933787772368616944061130683375801671526289302723479719394145613491886","HA":"697","HB":"-12","HC":"730054"} {"MaskedMsg":"13656573326796858844169315350906093560887351109834972399182504104638734681206","HA":"15521","HB":"3320","HC":"32962"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30001
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"17726117350293519555169640142429645286995962885262977170921640770786612620044","HA":"17329","HB":"9816","HC":"30754"} {"MaskedMsg":"79001261933787772368616944061130683375801671526289302723479719394145613491886","HA":"697","HB":"-12","HC":"730054"} {"MaskedMsg":"13656573326796858844169315350906093560887351109834972399182504104638734681206","HA":"15521","HB":"3320","HC":"32962"} {"MaskedMsg":"67351096287241446125142658748143032343406093479210801146149474823084119736940","HA":"6007","HB":"3994","HC":"85373"} {"MaskedMsg":"46549873628464633927404956119371873271173549876298313570411300267887445009494","HA":"2123","HB":"1696","HC":"240022"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"17726117350293519555169640142429645286995962885262977170921640770786612620044","HA":"17329","HB":"9816","HC":"30754"} {"MaskedMsg":"79001261933787772368616944061130683375801671526289302723479719394145613491886","HA":"697","HB":"-12","HC":"730054"} {"MaskedMsg":"13656573326796858844169315350906093560887351109834972399182504104638734681206","HA":"15521","HB":"3320","HC":"32962"} {"MaskedMsg":"67351096287241446125142658748143032343406093479210801146149474823084119736940","HA":"6007","HB":"3994","HC":"85373"} {"MaskedMsg":"46549873628464633927404956119371873271173549876298313570411300267887445009494","HA":"2123","HB":"1696","HC":"240022"}]
+===>[Collector]The group element h is (a=17329,b=9816,c=30754,d=-2035390408)
+===>[ForcedOpen]opened msg is 886535428930860
+===>[Collector]The group element h is (a=697,b=-12,c=730054,d=-2035390408)
+===>[ForcedOpen]opened msg is 889338681711326
+===>[Collector]The group element h is (a=15521,b=3320,c=32962,d=-2035390408)
+===>[ForcedOpen]opened msg is 935515388327451
+===>[Collector]The group element h is (a=6007,b=3994,c=85373,d=-2035390408)
+===>[ForcedOpen]opened msg is 649446648834530
+===>[Collector]The group element h is (a=2123,b=1696,c=240022,d=-2035390408)
+===>[ForcedOpen]opened msg is 346544826877802
+===>[WatchOutput]New output is: 45939549273953
+
+===>[Collector]Round: 10
+===>[TcMsgReceive]The group element h is (a=23101,b=13194,c=23911,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=7846,b=-2040,c=64987,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=10391,b=-1412,c=49018,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=13673,b=3760,c=37474,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=20927,b=20480,c=29326,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=1558,b=-1464,c=326947,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=1447,b=-1100,c=351866,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=1889,b=838,c=269467,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"46661160285235599080097514789086317460446552341797460562371999830259419348075","HA":"23101","HB":"13194","HC":"23911"} {"MaskedMsg":"40884623574528031280508617835186663206538000637529250786290410635356458054875","HA":"20927","HB":"20480","HC":"29326"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30002
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"43766972571092290129899953671973226511153958085379257384674892272267521346548","HA":"1837","HB":"1494","HC":"277303"} {"MaskedMsg":"46661160285235599080097514789086317460446552341797460562371999830259419348075","HA":"23101","HB":"13194","HC":"23911"} {"MaskedMsg":"40884623574528031280508617835186663206538000637529250786290410635356458054875","HA":"20927","HB":"20480","HC":"29326"} {"MaskedMsg":"64982007564598575839795895615179456371423646981854839596586601534482530728278","HA":"19234","HB":"9812","HC":"27707"} {"MaskedMsg":"52523623778113065944657739345406681125581719924706538904837154946251191553479","HA":"13799","HB":"10298","HC":"38797"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"43766972571092290129899953671973226511153958085379257384674892272267521346548","HA":"1837","HB":"1494","HC":"277303"} {"MaskedMsg":"46661160285235599080097514789086317460446552341797460562371999830259419348075","HA":"23101","HB":"13194","HC":"23911"} {"MaskedMsg":"40884623574528031280508617835186663206538000637529250786290410635356458054875","HA":"20927","HB":"20480","HC":"29326"} {"MaskedMsg":"64982007564598575839795895615179456371423646981854839596586601534482530728278","HA":"19234","HB":"9812","HC":"27707"} {"MaskedMsg":"52523623778113065944657739345406681125581719924706538904837154946251191553479","HA":"13799","HB":"10298","HC":"38797"}]
+===>[Collector]The group element h is (a=1837,b=1494,c=277303,d=-2035390408)
+===>[ForcedOpen]opened msg is 604220019223928
+===>[Collector]The group element h is (a=23101,b=13194,c=23911,d=-2035390408)
+===>[ForcedOpen]opened msg is 1077508024512643
+===>[Collector]The group element h is (a=20927,b=20480,c=29326,d=-2035390408)
+===>[ForcedOpen]opened msg is 364952840962709
+===>[Collector]The group element h is (a=19234,b=9812,c=27707,d=-2035390408)
+===>[ForcedOpen]opened msg is 605718184173549
+===>[Collector]The group element h is (a=13799,b=10298,c=38797,d=-2035390408)
+===>[ForcedOpen]opened msg is 572617475763686
+===>[WatchOutput]New output is: 162414673407333
+
+===>[Collector]Round: 11
+===>[TcMsgReceive]The group element h is (a=3037,b=-2116,c=167918,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=5713,b=-1590,c=89179,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=7394,b=1884,c=68939,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=15347,b=-10170,c=34841,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[TcMsgReceive]The group element h is (a=11798,b=-6448,c=44011,d=-2035390408)
+===>[TcMsgReceive]The group element M_K is (a=754,b=-92,c=674867,d=-2035390408)
+===>[TcMsgReceive]The group element a1 is (a=11254,b=9032,c=47027,d=-2035390408)
+===>[TcMsgReceive]The group element a2 is (a=21587,b=-5490,c=23921,d=-2035390408)
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+===>[TcMsgReceive]new tc pass!!!
+===>[Collector]New TC is: [{"MaskedMsg":"25011596369196469264341864257243046336651324399048619076777928477967049712742","HA":"3037","HB":"-2116","HC":"167918"} {"MaskedMsg":"52523623778113065944657739345406681125581719924706538904837154914990401502088","HA":"11798","HB":"-6448","HC":"44011"}]
+===>[Collector]IP list is: [127.0.0.1:30000 127.0.0.1:30001 127.0.0.1:30002 127.0.0.1:30003]
+===>[Collector]Leader IP is: 127.0.0.1:30003
+==>[ReadFileStringArray] Read  [{"MaskedMsg":"88489655641120108785994327350827873097308759867512629155378625156080512159253","HA":"16354","HB":"1780","HC":"31163"} {"MaskedMsg":"25011596369196469264341864257243046336651324399048619076777928477967049712742","HA":"3037","HB":"-2116","HC":"167918"} {"MaskedMsg":"52523623778113065944657739345406681125581719924706538904837154914990401502088","HA":"11798","HB":"-6448","HC":"44011"} {"MaskedMsg":"31424929012949003166672733892247571742831122946598028472865575023389276302220","HA":"1109","HB":"-482","HC":"458887"} {"MaskedMsg":"108158024555284587221698589875879920650947550907988284034639833127687989288467","HA":"22261","HB":"11834","HC":"24431"}]
+===>[Collector]Message on Bulletin Board is correct! Continue
+==>[ReadFileStringArray] Read  [{"Round":"1","View":"7","Sender":"1","Sig":"0455cc3b8294e5f090c4f67319201e1323e70d026db2d512f10be49f1925f7e95441e5a22efde4cf0d4fa7f8f605517613577f6df51cb758334fabbf8045ea37"} {"Round":"1","View":"7","Sender":"0","Sig":"33f9e9261c183eae24728b467aae5ebf8bfd405365bb864c7859cfa94243d5757dfdc0fb7629fea5f287bdb963e127c0d47dd325957bc962f682fd38269c556f"} {"Round":"1","View":"7","Sender":"3","Sig":"127f0b474724161633e842147d213405ec848864891ad3f01781348b96c937067830360183f25d0da0045436b8f08797da73b6a7803db5920c6ca7d24375b884"} {"Round":"1","View":"7","Sender":"2","Sig":"75a8d5fd21cfc93207b90e1f84d2032ff0265eb649f1a9cd6047035f1567f8ac240a17105cf2b8a1b5706d6d183bbd6d7e3556821ae178e18edc2cc5d15c4dfb"}]
+===>[Collector]Golabel TC set is: [{"MaskedMsg":"88489655641120108785994327350827873097308759867512629155378625156080512159253","HA":"16354","HB":"1780","HC":"31163"} {"MaskedMsg":"25011596369196469264341864257243046336651324399048619076777928477967049712742","HA":"3037","HB":"-2116","HC":"167918"} {"MaskedMsg":"52523623778113065944657739345406681125581719924706538904837154914990401502088","HA":"11798","HB":"-6448","HC":"44011"} {"MaskedMsg":"31424929012949003166672733892247571742831122946598028472865575023389276302220","HA":"1109","HB":"-482","HC":"458887"} {"MaskedMsg":"108158024555284587221698589875879920650947550907988284034639833127687989288467","HA":"22261","HB":"11834","HC":"24431"}]
+===>[Collector]The group element h is (a=16354,b=1780,c=31163,d=-2035390408)
+===>[ForcedOpen]opened msg is 54493522709795
+===>[Collector]The group element h is (a=3037,b=-2116,c=167918,d=-2035390408)
+===>[ForcedOpen]opened msg is 466321787747155
+===>[Collector]The group element h is (a=11798,b=-6448,c=44011,d=-2035390408)
+===>[ForcedOpen]opened msg is 602912972250025
+===>[Collector]The group element h is (a=1109,b=-482,c=458887,d=-2035390408)
+===>[ForcedOpen]opened msg is 190734638653937
+===>[Collector]The group element h is (a=22261,b=11834,c=24431,d=-2035390408)
+===>[ForcedOpen]opened msg is 538329408703522

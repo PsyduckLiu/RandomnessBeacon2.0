@@ -14,9 +14,10 @@ service OutputHandle {
 message Output {
   int64 type = 1;
   string round = 2;
-  string randomNumber = 3;
-  string sig = 4;
-  string from = 5;
+  string view = 3;
+  string randomNumber = 4;
+  string sig = 5;
+  string sender = 6;
 }
 
 message OutputResponse {}

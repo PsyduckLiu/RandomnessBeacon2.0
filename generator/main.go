@@ -30,8 +30,11 @@ func NewGenerator(id int) *Generator {
 		OutputCh: make(chan string),
 	}
 
-	config.DownloadFile("http://172.18.208.214/Config.yml", "download/Config.yml")
-	config.DownloadFile("http://172.18.208.214/IP.yml", "download/IP.yml")
+	boardIP := config.GetBoardIP()
+	filename1 := "http://" + boardIP + "/Config.yml"
+	config.DownloadFile(filename1, "download/Config.yml")
+	filename2 := "http://" + boardIP + "/IP.yml"
+	config.DownloadFile(filename2, "download/IP.yml")
 
 	return g
 }
@@ -47,6 +50,7 @@ func main() {
 	watch.WatchOutput(generator.OutputCh, "output")
 	for {
 		select {
+		// new output
 		case <-generator.OutputCh:
 			{
 				time.Sleep(2 * time.Second)
@@ -80,17 +84,4 @@ func main() {
 			}
 		}
 	}
-
-	// timedCommitment.ForcedOpen(maskedMsg, h)
-
-	// for {
-	// 	rand.Seed(time.Now().UnixNano())
-	// 	b := make([]byte, 6)
-	// 	rand.Read(b)
-	// 	rand_str := hex.EncodeToString(b)
-
-	// 	watch.WriteFile("../output", rand_str)
-
-	// 	time.Sleep(5 * time.Second)
-	// }
 }

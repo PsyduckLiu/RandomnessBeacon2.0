@@ -61,15 +61,19 @@ func GenerateNewLeaderSig(msgtype int64, round string, view string, sender strin
 	return hex.EncodeToString(result)
 }
 
-func GenerateOutputSig(msgtype int64, round string, randomNumber string, signer blsSig.Signer) string {
+func GenerateOutputSig(msgtype int64, round string, view string, randomNumber string, sender string, signer blsSig.Signer) string {
 	tHash := new(big.Int).SetBytes(util.Digest((msgtype)))
 	rHash := new(big.Int).SetBytes(util.Digest((round)))
+	vHash := new(big.Int).SetBytes(util.Digest((view)))
 	rnHash := new(big.Int).SetBytes(util.Digest((randomNumber)))
+	sHash := new(big.Int).SetBytes(util.Digest((sender)))
 
 	e := big.NewInt(0)
 	e.Xor(e, tHash)
 	e.Xor(e, rHash)
+	e.Xor(e, vHash)
 	e.Xor(e, rnHash)
+	e.Xor(e, sHash)
 
 	signature, err := signer.Sign(e.Bytes())
 	if err != nil {

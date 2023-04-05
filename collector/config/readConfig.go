@@ -9,6 +9,19 @@ import (
 	blsSig "go.dedis.ch/dela/crypto/bls"
 )
 
+// get cboard ip from config file
+func GetBoardIP() string {
+	// set config file
+	configViper := viper.New()
+	configViper.SetConfigFile("../boardIP.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
+	}
+
+	return configViper.GetString("ip")
+}
+
 // get class group parameter from config file
 func GetGroupParameter() (int, int, int) {
 	// set config file
@@ -81,7 +94,6 @@ func GetF() int {
 
 // get public key
 func GetKey(id int) blsCrypto.PublicKey {
-	DownloadFile("http://172.18.208.214/Key.yml", "download/Key.yml")
 	// set config file
 	configViper := viper.New()
 	// configViper.SetConfigFile("../Key.yml")
@@ -110,7 +122,6 @@ func GetKey(id int) blsCrypto.PublicKey {
 
 // get total TC from TC file
 func GetTC() []string {
-	DownloadFile("http://172.18.208.214/TC", "download/TC")
 	// set config file
 	configViper := viper.New()
 	// configViper.SetConfigFile("../Config.yml")
@@ -131,7 +142,6 @@ func GetTC() []string {
 
 // get peer IP from ipAdress config file
 func GetPeerIP() []string {
-	DownloadFile("http://172.18.208.214/IP.yml", "download/IP.yml")
 	// set config file
 	configViper := viper.New()
 	// configViper.SetConfigFile("../Config.yml")
@@ -151,8 +161,7 @@ func GetPeerIP() []string {
 }
 
 // get board IP from ipAdress config file
-func GetBoardIP() string {
-	DownloadFile("http://172.18.208.214/IP.yml", "download/IP.yml")
+func GetBoardLisIP() string {
 	// set config file
 	configViper := viper.New()
 	// configViper.SetConfigFile("../Config.yml")

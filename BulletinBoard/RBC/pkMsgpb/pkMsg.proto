@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pkMsgpb;
+
+option go_package = "../pkMsgpb";
+
+// The PkMsgHandle service definition.
+service PkMsgHandle {
+  // Handles a received PkMsg message
+  rpc PkMsgReceive (PkMsg) returns (PkMsgResponse) {}
+}
+
+// The request message containing the user's name.
+message PkMsg {
+  int64 type = 1;
+  string sender = 2;
+  string pk = 3;
+  string sig = 4;
+}
+
+message PkMsgResponse {}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package newOutputpb;
+
+option go_package = "../newOutputpb";
+
+// The NewOutputHandle service definition.
+service NewOutputHandle {
+  // Handles a received newOutput message
+  rpc NewOutputReceive (NewOutput) returns (NewOutputResponse) {}
+}
+
+// The request message containing the user's name.
+message NewOutput {
+  int64 type = 1;
+  string round = 2;
+  string view = 3;
+  string sender = 4;
+  string output = 5;
+  string sig = 6;
+}
+
+message NewOutputResponse {}

@@ -6,6 +6,19 @@ import (
 	"github.com/spf13/viper"
 )
 
+// get cboard ip from config file
+func GetBoardIP() string {
+	// set config file
+	configViper := viper.New()
+	configViper.SetConfigFile("../boardIP.yml")
+
+	if err := configViper.ReadInConfig(); err != nil {
+		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
+	}
+
+	return configViper.GetString("ip")
+}
+
 // get class group parameter from config file
 func GetGroupParameter() (int, int, int) {
 	// set config file
@@ -94,18 +107,4 @@ func GetPeerIP() []string {
 	ipList = append(ipList, configViper.GetString("peer3"))
 
 	return ipList
-}
-
-// get board IP from ipAdress config file
-func GetBoardIP() string {
-	// set config file
-	configViper := viper.New()
-	// configViper.SetConfigFile("../Config.yml")
-	configViper.SetConfigFile("download/IP.yml")
-
-	if err := configViper.ReadInConfig(); err != nil {
-		panic(fmt.Errorf("===>[ERROR from GetGroupParameter]Read config file failed:%s", err))
-	}
-
-	return configViper.GetString("board")
 }

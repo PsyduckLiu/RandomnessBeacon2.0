@@ -1,11 +1,161 @@
-===>[WatchOutput]New output is: 62f3c2e99c4d
+===>[WatchOutput]New output is: 52c25e0fc404
 ===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
 ===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
 ===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
 ===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
 ===>[GenerateTC]Upper bound of alpha is 22557.
-===>[GenerateTC]alpha is 3549
-===>[GenerateTC]msg is 796434910709954
+===>[GenerateTC]alpha is 5964
+===>[GenerateTC]msg is 119546268069749
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 411938967499335
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 10793
+===>[GenerateTC]msg is 778595693128788
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 409497165347799
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 17539
+===>[GenerateTC]msg is 185138775155587
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 523846211950160
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 20251
+===>[GenerateTC]msg is 186529824176334
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 644573754934544
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 7175
+===>[GenerateTC]msg is 165361872651596
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 303597310440652
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 19268
+===>[GenerateTC]msg is 991536472736574
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 270710761533704
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 11579
+===>[GenerateTC]msg is 274779067730395
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 726790763313107
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 19684
+===>[GenerateTC]msg is 401252264988188
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 20412595773
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 9740
+===>[GenerateTC]msg is 346544826877802
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 45939549273953
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 21093
+===>[GenerateTC]msg is 604220019223928
+===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[VerifyTC]Upper bound of alpha is 22557.
+true
+2
+===>[WatchOutput]New output is: 162414673407333
+===>[GenerateTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
+===>[GenerateTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
+===>[GenerateTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)
+===>[VerifyGroup]The group proof is (a=7106,b=6404,c=73051,d=-2035390408)
+===>[GenerateTC]Upper bound of alpha is 22557.
+===>[GenerateTC]alpha is 18193
+===>[GenerateTC]msg is 538329408703522
 ===>[VerifyTC]The group element g is (a=319,b=24,c=1595134,d=-2035390408)
 ===>[VerifyTC]The group element m_k is (a=21043,b=-20506,c=29177,d=-2035390408)
 ===>[VerifyTC]The group element r_k is (a=946,b=332,c=537923,d=-2035390408)

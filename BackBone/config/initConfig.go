@@ -7,8 +7,11 @@ import (
 	"math/big"
 )
 
+// init a class group
 func InitGroup() {
-	DownloadFile("http://172.18.208.214/Config.yml", "download/Config.yml")
+	boardIP := GetBoardIP()
+	filename := "http://" + boardIP + "/Config.yml"
+	DownloadFile(filename, "download/Config.yml")
 
 	a, b, c := GetGroupParameter()
 	t := GetTimeParameter()
